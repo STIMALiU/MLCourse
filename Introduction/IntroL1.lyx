@@ -1,0 +1,1133 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\setcounter{MaxMatrixCols}{10}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathpazo}
+\usepackage{hyperref}
+%\usepackage{multimedia}
+\usepackage{movie15}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\definecolor{RawSienna}{cmyk}{0,0.87,0.82,0.31}
+\definecolor{gray97}{cmyk}{0,0,0,0.03}
+\definecolor{robinsegg}{cmyk}{0.18,0.04,0,0.07}
+\definecolor{cola}{cmyk}{0,0.315,0.35,0.155}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usecolortheme[named=RawSienna]{structure}
+%\usecolortheme[RGB={205,0,0}]{structure}
+\setbeamertemplate{navigation symbols}{}
+\useoutertheme{infolines}
+\usetheme{default}
+\setbeamertemplate{blocks}[shadow=true]
+%\setbeamerfont{structure}{shape=\itshape}
+\usefonttheme{structuresmallcapsserif}
+\setbeamertemplate{background canvas}{
+ % \ifnum \thepage>0 \relax % we are on the first page
+%\includegraphics[width=\paperwidth,height=\paperheight]{/home/mv/Dropbox/Foton/IconsWallpaper/greyribbonLighter.jpg}
+ % \else
+ 	% No background for page 2 and onwards
+ % \fi
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+732A52
+\end_layout
+
+\end_inset
+
+Introduction to Machine Learning
+\begin_inset Newline newline
+\end_inset
+
+Topic 1: Introduction
+\begin_inset Newline newline
+\end_inset
+
+Lecture 1
+\end_layout
+
+\begin_layout Author
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Mattias Villani
+\end_layout
+
+\end_inset
+
+Mattias Villani
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+STIMA, LiU
+\end_layout
+
+\end_inset
+
+Division of Statistics and Machine Learning
+\begin_inset Newline newline
+\end_inset
+
+Department of Computer and Information Science
+\begin_inset Newline newline
+\end_inset
+
+Linköping University 
+\end_layout
+
+\begin_layout Date
+\begin_inset Graphics
+	filename ../../ProbStatUProg/Lectures/LiU_secondary_1_black.png
+	lyxscale 7
+	scale 15
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Overview of the course
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nine topics:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Introduction
+\end_layout
+
+\begin_layout Itemize
+Bla
+\end_layout
+
+\begin_layout Itemize
+Bla
+\end_layout
+
+\begin_layout Itemize
+Bla
+\end_layout
+
+\begin_layout Itemize
+Bla Ba
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Course structure:lectures, labs and seminars.
+\end_layout
+
+\begin_layout Itemize
+Teachers: Mattias Villani, Oleg Sysoev and Isak Hietala.
+\end_layout
+
+\begin_layout Itemize
+Lab assistants: 
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Overview of today's lecture
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+What is machine learning?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Motivating examples
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Unsupervised vs Supervised learning
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regression vs Classification
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Generative vs Discriminative models
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Parametric vs nonparametric models
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Overfitting and Regularization
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Prediction and Model evaluation (including precision, recall, MSFE etc)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Introduction to Bayesian learning
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+What is machine learning?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+Machine learning is a subfield of 
+\series bold
+computer science
+\series default
+ that evolved from the study of 
+\series bold
+\color blue
+pattern recognition
+\series default
+\color inherit
+ and computational learning theory in 
+\series bold
+\color blue
+artificial intelligence
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+Machine learning explores the study and construction of 
+\series bold
+\color blue
+algorithms
+\series default
+\color inherit
+ that can 
+\series bold
+\color blue
+learn
+\series default
+\color inherit
+ from and make 
+\series bold
+\color blue
+predictions
+\series default
+\color inherit
+ on 
+\series bold
+\color blue
+data
+\series default
+\color inherit
+.
+ Such algorithms operate by building a model from example inputs in order
+ to make data-driven predictions or 
+\series bold
+\color blue
+decisions
+\series default
+\color inherit
+, rather than following strictly static program instructions.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+Machine learning is closely related to and often overlaps with 
+\series bold
+\color blue
+computational statistics
+\series default
+\color inherit
+; a discipline that also specializes in prediction-making.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\color blue
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+Wikipedia (Oct 11, 2015).
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+What is machine learning?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Machine learning is an area in the 
+\series bold
+intersection
+\series default
+ of 
+\series bold
+\color blue
+computer science
+\series default
+\color inherit
+, 
+\series bold
+\color blue
+statistics
+\series default
+\color inherit
+ and 
+\series bold
+\color blue
+artificial intelligence
+\series default
+\color inherit
+.
+ It is closely related to 
+\series bold
+data mining
+\series default
+, 
+\series bold
+knowledge discovery
+\series default
+ and 
+\series bold
+data science
+\series default
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Machine learning uses mainly 
+\series bold
+\color blue
+statistical
+\color inherit
+ (probabilistic) 
+\color blue
+models
+\series default
+\color inherit
+ 
+\series bold
+for analyzing 
+\color blue
+data
+\series default
+\color inherit
+.
+ Data mining and knowledge discovery tend to use less rigorous, but often
+ effective, algorithms.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Machine learning differs from traditional statistics by a 
+\series bold
+heavier focus on 
+\color blue
+prediction
+\series default
+\color inherit
+, and lesser focus on interpretation.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Models in machine learning are often 
+\series bold
+more 
+\color blue
+flexible
+\series default
+\color inherit
+ (more parameters) than those in traditional statistics, and 
+\series bold
+regularization
+\series default
+ to 
+\series bold
+avoid over-fitting
+\series default
+ is therefore a much bigger concern.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Machine learning applications often involve large data data sets (
+\series bold
+\color blue
+big data
+\series default
+\color inherit
+), and 
+\series bold
+\color blue
+computational complexity
+\series default
+\color inherit
+ of estimation algorithms is therefore important.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Statistics or Computer Science? Both!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+I keep saying the sexy job in the next ten years will be statisticians.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+Hal Varian, Chief Economist, Google.
+\size default
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+But the challenges for massive data go beyond the storage, indexing, and
+ querying … and, instead, hinge on the ambitious goal of inference.
+ Inference is the problem of turning data into knowledge … Statistical rigor
+ is necessary to justify the inferential leap from data to knowledge …”
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+from the report 
+\begin_inset Quotes eld
+\end_inset
+
+Frontiers in Massive Data Analysis
+\begin_inset Quotes erd
+\end_inset
+
+, US National Research Council.
+\size default
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+Computer scientists involved in building big-data systems must develop a
+ deeper awareness of inferential issues, while statisticians must concern
+ themselves with scalability, algorithmic issues, and real-time decision-making.
+ from the report 
+\begin_inset Quotes eld
+\end_inset
+
+Frontiers in Massive Data Analysis
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+from the report 
+\begin_inset Quotes eld
+\end_inset
+
+Frontiers in Massive Data Analysis
+\begin_inset Quotes erd
+\end_inset
+
+, US National Research Council.
+\end_layout
+
+\begin_layout Quote
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+As robotics is now moving into the open world, the issue of uncertainty
+ has become a major stumbling block for the design of capable robot systems.
+ Managing uncertainty is possibly the most important step towards robust
+ real-world robot systems.
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+from the book Probabilistic Robotics by Thrun et al.
+
+\size default
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+Statistics provides the mathematical glue to integrate models and sensor
+ measurements.
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+from the book Probabilistic Robotics by Thrun et al.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+But why probability models?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Probability models and statistical inference provide a 
+\series bold
+framework
+\series default
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A principled 
+\series bold
+way to think
+\series default
+ about any problem in machine learning.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Probabilistic models can be 
+\series bold
+evaluated
+\series default
+ in detail.
+ Locate and understand the deficiencies in the model.
+ Improve.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Probabilistic models 
+\series bold
+quantify uncertainties
+\series default
+.
+ Needed for data-driven decision making.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+As robotics is now moving into the open world, the issue of 
+\series bold
+\size small
+\color blue
+uncertainty
+\series default
+\size default
+\color inherit
+ has become a major stumbling block for the design of capable robot systems.
+ Managing uncertainty is possibly the most important step towards robust
+ real-world robot systems.
+\begin_inset Newline newline
+\end_inset
+
+
+\size tiny
+from the book Probabilistic Robotics by Thrun et al.
+
+\size default
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Overfitting - Polynomials
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../ProbStatUProg/Lectures/overfittingPoly.png
+	lyxscale 20
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Overfitting - smoothness prior
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../ProbStatUProg/Lectures/overfittingRidge.png
+	lyxscale 20
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Regression with a binary response
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $Y$
+\end_inset
+
+ is 
+\series bold
+binary
+\series default
+, we can't assume that 
+\begin_inset Formula $Y\vert(X=x)\sim N(\mu(x),\sigma^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Better with a Bernoulli model: 
+\begin_inset Formula 
+\[
+Y\vert(X=x)\sim Bernoulli(\theta(x))
+\]
+
+\end_inset
+
+and that different 
+\begin_inset Formula $Y$
+\end_inset
+
+-observations are independent given 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Common functional form for 
+\begin_inset Formula $\theta(x)$
+\end_inset
+
+ (
+\series bold
+\color blue
+logistic regression
+\series default
+\color inherit
+):
+\begin_inset Formula 
+\[
+\theta(x)=\frac{\exp(w_{0}+w_{1}\cdot x)}{1+\exp(w_{0}+w_{1}\cdot x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Likelihood: 
+\series default
+
+\begin_inset Formula 
+\begin{align*}
+L(w_{0},w_{1}) & =\prod_{i=1}^{n}\theta(x_{i})^{y_{i}}(1-\theta(x_{i}))^{1-y_{i}}\\
+ & =\prod_{i=1}^{n}\left[\frac{\exp(w_{0}+w_{1}\cdot x)}{1+\exp(w_{0}+w_{1}\cdot x)}\right]^{y_{i}}\left[\frac{1}{1+\exp(w_{0}+w_{1}\cdot x)}\right]^{1-y_{i}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We can just find MLEs by maximizing 
+\begin_inset Formula $L(w_{0},w_{1})$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $w_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{1}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{ML estimates in logistic regression}
+\end_layout
+
+\begin_layout Plain Layout
+
+<<fraudDetect, eval=TRUE, size='tiny'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Defining the log-likelihood function 
+\end_layout
+
+\begin_layout Plain Layout
+
+LogLik <- function(w,y,X){   
+\end_layout
+
+\begin_layout Plain Layout
+
+	linFunc = X%*%w 
+\end_layout
+
+\begin_layout Plain Layout
+
+	thetaVect = exp(linFunc)/(1+exp(linFunc))   
+\end_layout
+
+\begin_layout Plain Layout
+
+	logLikelihood <- sum(y*log(thetaVect) + (1-y)*log(1-thetaVect)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Reading in fraud data from file 
+\end_layout
+
+\begin_layout Plain Layout
+
+data <- read.csv('/Users/matvi05/Dropbox/Teaching/ProbStatUProg/Data/banknoteFrau
+d.csv', header = FALSE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+names(data) <- c("varWave","skewWave","kurtWave","entropyWave","fraud")
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- data[,5] 
+\end_layout
+
+\begin_layout Plain Layout
+
+X <- as.matrix(cbind(1,data[,1:4]))     # Adding a column of ones for the
+ intercept 
+\end_layout
+
+\begin_layout Plain Layout
+
+nPara <- dim(X)[2]                      # Number of covariates incl intercept
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Optimize to the find the ML estimates.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+initPar <- matrix(0,nPara,1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+optimResults <- optim(initPar, LogLik, gr = NULL, y, X, control=list(fnscale=-1)
+) 
+\end_layout
+
+\begin_layout Plain Layout
+
+optimResults$par # wHat, the ML estimates of w = (w0,w1,...,w4)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

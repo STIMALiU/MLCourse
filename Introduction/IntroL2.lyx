@@ -1,0 +1,609 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\setcounter{MaxMatrixCols}{10}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathpazo}
+\usepackage{hyperref}
+%\usepackage{multimedia}
+\usepackage{movie15}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\definecolor{RawSienna}{cmyk}{0,0.87,0.82,0.31}
+\definecolor{gray97}{cmyk}{0,0,0,0.03}
+\definecolor{robinsegg}{cmyk}{0.18,0.04,0,0.07}
+\definecolor{cola}{cmyk}{0,0.315,0.35,0.155}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usecolortheme[named=RawSienna]{structure}
+%\usecolortheme[RGB={205,0,0}]{structure}
+\setbeamertemplate{navigation symbols}{}
+\useoutertheme{infolines}
+\usetheme{default}
+\setbeamertemplate{blocks}[shadow=true]
+%\setbeamerfont{structure}{shape=\itshape}
+\usefonttheme{structuresmallcapsserif}
+\setbeamertemplate{background canvas}{
+ % \ifnum \thepage>0 \relax % we are on the first page
+%\includegraphics[width=\paperwidth,height=\paperheight]{/home/mv/Dropbox/Foton/IconsWallpaper/greyribbonLighter.jpg}
+ % \else
+ 	% No background for page 2 and onwards
+ % \fi
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+732A52
+\end_layout
+
+\end_inset
+
+Introduction to Machine Learning
+\begin_inset Newline newline
+\end_inset
+
+Topic 1: Introduction
+\begin_inset Newline newline
+\end_inset
+
+Lecture 2
+\end_layout
+
+\begin_layout Author
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Mattias Villani
+\end_layout
+
+\end_inset
+
+Mattias Villani
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+STIMA, LiU
+\end_layout
+
+\end_inset
+
+Division of Statistics and Machine Learning
+\begin_inset Newline newline
+\end_inset
+
+Department of Computer and Information Science
+\begin_inset Newline newline
+\end_inset
+
+Linköping University 
+\end_layout
+
+\begin_layout Date
+\begin_inset Graphics
+	filename ../../ProbStatUProg/Lectures/LiU_secondary_1_black.png
+	lyxscale 7
+	scale 15
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Overview of the course
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nine topics:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Introduction
+\end_layout
+
+\begin_layout Itemize
+Bla
+\end_layout
+
+\begin_layout Itemize
+Bla
+\end_layout
+
+\begin_layout Itemize
+Bla
+\end_layout
+
+\begin_layout Itemize
+Bla Ba
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kovarians och korrelation
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multipel regression
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regression med binär respons
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Overview of today's lecture
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Enkel regression
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kovarians och korrelation
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multipel regression
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regression med binär respons
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Överanpassning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../ProbStatUProg/Lectures/overfittingPoly.png
+	lyxscale 20
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Överanpassning - mjukhetsprior
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../ProbStatUProg/Lectures/overfittingRidge.png
+	lyxscale 20
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Regression med binär respons
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Hittills har vi antagit kontinuerlig (normalfördelad) respons, 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Om 
+\begin_inset Formula $Y$
+\end_inset
+
+ är 
+\series bold
+binär
+\series default
+ kan vi inte anta 
+\begin_inset Formula $Y\vert(X=x)\sim N(\mu(x),\sigma^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Bättre med 
+\begin_inset Formula 
+\[
+Y\vert(X=x)\sim Bernoulli(\theta(x))
+\]
+
+\end_inset
+
+och olika 
+\begin_inset Formula $Y$
+\end_inset
+
+-observationer är oberoende (givet 
+\begin_inset Formula $x$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Itemize
+Vanlig funktionsform för 
+\begin_inset Formula $\theta(x)$
+\end_inset
+
+ (
+\series bold
+\color blue
+logistisk regression
+\series default
+\color inherit
+):
+\begin_inset Formula 
+\[
+\theta(x)=\frac{\exp(\beta_{0}+\beta_{1}\cdot x)}{1+\exp(\beta_{0}+\beta_{1}\cdot x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Minsta kvadrat är inte längre en bra estimationsmetod.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Maximum likelihood
+\series default
+ funkar alltid:
+\begin_inset Formula 
+\begin{align*}
+L(\beta_{0},\beta_{1}) & =\prod_{i=1}^{n}\theta(x_{i})^{y_{i}}(1-\theta(x_{i}))^{1-y_{i}}\\
+ & =\prod_{i=1}^{n}\left[\frac{\exp(\beta_{0}+\beta_{1}\cdot x)}{1+\exp(\beta_{0}+\beta_{1}\cdot x)}\right]^{y_{i}}\left[\frac{1}{1+\exp(\beta_{0}+\beta_{1}\cdot x)}\right]^{1-y_{i}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{ML skattningar i logistisk regression}
+\end_layout
+
+\begin_layout Plain Layout
+
+<<fraudDetect, eval=TRUE, size='tiny'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Defining the log-likelihood function 
+\end_layout
+
+\begin_layout Plain Layout
+
+LogLik <- function(betaVect,y,X){   
+\end_layout
+
+\begin_layout Plain Layout
+
+	linFunc = X%*%betaVect 
+\end_layout
+
+\begin_layout Plain Layout
+
+	thetaVect = exp(linFunc)/(1+exp(linFunc))   
+\end_layout
+
+\begin_layout Plain Layout
+
+	logLikelihood <- sum(y*log(thetaVect) + (1-y)*log(1-thetaVect)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Reading in fraud data from file 
+\end_layout
+
+\begin_layout Plain Layout
+
+data <- read.csv('/Users/matvi05/Dropbox/Teaching/ProbStatUProg/Data/banknoteFrau
+d.csv', header = FALSE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+names(data) <- c("varWave","skewWave","kurtWave","entropyWave","fraud")
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- data[,5] 
+\end_layout
+
+\begin_layout Plain Layout
+
+X <- as.matrix(cbind(1,data[,1:4]))     # Adding a column of ones for the
+ intercept 
+\end_layout
+
+\begin_layout Plain Layout
+
+nPara <- dim(X)[2]                      # Number of covariates incl intercept
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Optimize to the find the ML estimates.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+initPar <- matrix(0,nPara,1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+optimResults <- optim(initPar, LogLik, gr = NULL, y, X, control=list(fnscale=-1)
+) 
+\end_layout
+
+\begin_layout Plain Layout
+
+optimResults$par # betaHat, the ML estimates of beta = (beta0,beta1,...,beta4)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
