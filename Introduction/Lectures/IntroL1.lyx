@@ -437,6 +437,13 @@ Overview of Lecture 2
 \series bold
 \color blue
 Introduction to Bayesian learning
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -444,6 +451,13 @@ Introduction to Bayesian learning
 \series bold
 \color blue
 Bernoulli model with beta prior
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -451,6 +465,13 @@ Bernoulli model with beta prior
 \series bold
 \color blue
 Normal model with normal prior
+\series default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1286,6 +1307,10 @@ Dataset with
 
  photographed banknotes.
  610 of them are fraud.
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1295,6 +1320,10 @@ Raw data:
 
  gray-scale pixels.
  
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1306,6 +1335,12 @@ features
 \series default
 \color black
 , that capture the important aspects of the images.
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1362,11 +1397,19 @@ Detecting banknote fraud
 \begin_layout Itemize
 1000 images for training.
  
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 Predictions on 372 test images.
  
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1379,6 +1422,10 @@ Decision
 \end_inset
 
 .
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1625,7 +1672,7 @@ cellcolor{robinsegg}
 status open
 
 \begin_layout Plain Layout
-The machine learning work plan
+The machine learning work flow
 \end_layout
 
 \end_inset
@@ -1675,7 +1722,15 @@ Unsupervised vs Supervised learning
 Unsupervised
 \series default
 \color inherit
-: target values are unknown.
+: 
+\series bold
+target values
+\series default
+ (responses/
+\series bold
+labels
+\series default
+) are unknown.
  Goals: 
 \end_layout
 
@@ -1708,6 +1763,9 @@ Mixture models
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
+\color blue
 Association learning
 \end_layout
 
@@ -1719,13 +1777,13 @@ Association learning
 Supervised
 \series default
 \color inherit
-: labels are known.
+: targets are known.
  Goals:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Build a prediction machine inputs 
+Build a prediction machine: inputs 
 \begin_inset Formula $\rightarrow$
 \end_inset
 
@@ -1740,13 +1798,20 @@ Example models for supervised learning:
 
 \begin_deeper
 \begin_layout Itemize
-Regression: Linear regression.
+
+\series bold
+Regression
+\series default
+: Linear regression.
  Gaussian processes.
 \end_layout
 
 \begin_layout Itemize
-Classification: Logistic regression, Support vector machines, Discriminant
- analysis etc.
+
+\series bold
+Classification
+\series default
+: Logistic regression, Support vector machines etc.
 \end_layout
 
 \end_deeper
@@ -1757,8 +1822,7 @@ Classification: Logistic regression, Support vector machines, Discriminant
 Semi-supervised
 \series default
 \color inherit
-: labels are known for some observations, but a large portion of the data
- is unlabelled.
+: targets are known only for some observations.
 \end_layout
 
 \begin_layout Itemize
@@ -1769,8 +1833,7 @@ Active learning
 \series default
 \color inherit
 .
- Strategies for deciding when to label new data, and which observations
- to label.
+ Strategies for deciding which observations to label.
 \end_layout
 
 \end_deeper
@@ -1783,7 +1846,7 @@ Active learning
 status open
 
 \begin_layout Plain Layout
-Regression
+Unsupervised: Density estimation
 \end_layout
 
 \end_inset
@@ -1792,95 +1855,6 @@ Regression
 \end_layout
 
 \begin_deeper
-\begin_layout Itemize
-If 
-\begin_inset Formula $Y$
-\end_inset
-
- is continuous on 
-\begin_inset Formula $\mathbb{R}$
-\end_inset
-
- we may use linear Gaussian regression: 
-\begin_inset Formula 
-\[
-Y=w_{0}+w_{1}\cdot x+\varepsilon,\;\;\varepsilon\overset{indep}{\sim}N(0,\sigma^{2})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-This model may alternatively be written
-\begin_inset Formula 
-\[
-Y\vert(X=x)\sim N\left(\mu(x),\sigma^{2}\right),\text{ where }\;\mu(x)=w_{0}+w_{1}\cdot x
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Polynomials
-\end_layout
-
-\begin_layout Itemize
-Other basis functions
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Linear Gaussian regression
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename RegCondDens.png
-	lyxscale 30
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Density estimation
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Itemize
 Histograms: Partition 
 \begin_inset Formula $x$
@@ -1967,57 +1941,7 @@ where
  in a normal density.
 \end_layout
 
-\begin_layout Itemize
-\begin_inset Formula $k$
-\end_inset
-
--nearest neighbours: 
-\begin_inset Formula 
-\[
-p(x)=\frac{K}{NV}
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $K$
-\end_inset
-
- is the number of neighbours and 
-\begin_inset Formula $V$
-\end_inset
-
- is the width of the smallest bin that contains all neighbours of 
-\begin_inset Formula $x$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Unsupervised: density estimation
-\end_layout
-
-\begin_layout Itemize
-Supervised: Bayes theorem
-\begin_inset Formula 
-\[
-p(\mathcal{C}_{k}\vert\mathbf{x})=\frac{p(\mathbf{x}\vert\mathcal{C}_{k})p(\mathcal{C}_{k})}{p(\mathbf{x})}
-\]
-
-\end_inset
-
-and 
-\begin_inset Formula 
-\[
-p(\mathbf{x}\vert\mathcal{C}_{k})=\frac{K_{k}}{N\cdot V}
-\]
-
-\end_inset
-
-
-\end_layout
-
+\end_deeper
 \begin_layout Separator
 
 \end_layout
@@ -2046,6 +1970,132 @@ Fish length - Histogram density estimates
 \end_inset
 
 
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Fish length - kernel density estimates
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename FishKernelDensEst.png
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Unsupervised: Density estimation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $k$
+\end_inset
+
+-nearest neighbours
+\series default
+\color inherit
+: 
+\begin_inset Formula 
+\[
+p(x)=\frac{K}{NV}
+\]
+
+\end_inset
+
+where
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of data observations
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K$
+\end_inset
+
+ is the number of neighbours
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $V$
+\end_inset
+
+ is the width of the smallest bin that contains exactly the 
+\begin_inset Formula $K$
+\end_inset
+
+ neighbours of 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Histograms: fix 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ and count the number of observations in a bin
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k$
+\end_inset
+
+-nearest neighbours: fix the number of observations 
+\begin_inset Formula $K$
+\end_inset
+
+ in a bin, and make sure that the bin width 
+\begin_inset Formula $V$
+\end_inset
+
+ is large enough.
+ 
 \end_layout
 
 \end_deeper
@@ -2089,6 +2139,77 @@ Fish length - kNN density estimates
 status open
 
 \begin_layout Plain Layout
+Unsupervised: Density estimation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color black
+Two-component 
+\series bold
+\color blue
+mixture of normals
+\color black
+
+\begin_inset Formula 
+\[
+p(y)=\pi_{1}\cdot\phi(y\vert\mu_{1},\sigma_{1}^{2})+\pi_{2}\cdot\phi(y\vert\mu_{2},\sigma_{2}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mixture of normals with 
+\begin_inset Formula $K$
+\end_inset
+
+ components
+\begin_inset Formula 
+\[
+p(y)=\sum_{k=1}^{K}\pi_{k}\cdot\phi(y\vert\mu_{k},\sigma_{k}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Maximum likelihood or Bayesian methods to estimate the model parameters:
+ 
+\begin_inset Formula $\pi_{1},...,\pi_{K}$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{1},...,\mu_{K}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{1},...,\sigma_{K}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 Fish length - Mixture of normals
 \end_layout
 
@@ -2120,7 +2241,578 @@ Fish length - Mixture of normals
 status open
 
 \begin_layout Plain Layout
-Parametric vs nonparametric models
+Three types of supevised models
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Generative models
+\series default
+\color inherit
+: models inputs and targets jointly:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $p(\mathbf{Y},\mathbf{X})$
+\end_inset
+
+ when the target 
+\begin_inset Formula $Y$
+\end_inset
+
+ is continuous
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p(\mathcal{C}_{k},\mathbf{X})$
+\end_inset
+
+ when the target is a class 
+\begin_inset Formula $\mathcal{C}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Bayes theorem 
+\begin_inset Formula $p(s\vert x)\propto p(x\vert s)p(s).$
+\end_inset
+
+ Model: 
+\begin_inset Formula $p(x\vert s)p(s)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Discriminative models
+\series default
+\color inherit
+: Models 
+\begin_inset Formula $p(s\vert x)$
+\end_inset
+
+ directly.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Discriminant function models
+\series default
+\color inherit
+: uses a function 
+\begin_inset Formula $f(\mathbf{x})$
+\end_inset
+
+ that maps any 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ to a class label 
+\begin_inset Formula $\mathcal{C}_{k}$
+\end_inset
+
+.
+ No probabilities are involved.
+\end_layout
+
+\begin_layout Itemize
+Generative models can be used to generate synthetic data.
+\end_layout
+
+\begin_layout Itemize
+Discriminative models typically have fewer parameters than generative models.
+\end_layout
+
+\begin_layout Itemize
+Discriminative models tend to give better predictions, especially when the
+ generative model for 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is bad.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Generative models - Bayesian classification
+\series bold
+\size largest
+\color blue
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Bayesian classification
+\series default
+\color inherit
+ among 
+\series bold
+
+\begin_inset Formula $K$
+\end_inset
+
+
+\series default
+ classes
+\begin_inset Formula 
+\[
+\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\:p(\mathcal{C}_{k}|\mathbf{x})
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{x}=(x_{1},...,x_{n})$
+\end_inset
+
+ is a feature vector.
+\end_layout
+
+\begin_layout Itemize
+By 
+\series bold
+Bayes' theorem
+\series default
+
+\begin_inset Formula 
+\[
+p(\mathcal{C}_{k}|\mathbf{x})=\frac{p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})}{p(\mathbf{x})}\propto p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bayesian classification
+\begin_inset Formula 
+\[
+\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\:p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p(\mathcal{C}_{k})$
+\end_inset
+
+ can be easily estimated from training data by relative frequencies.
+\end_layout
+
+\begin_layout Itemize
+But how do we compute 
+\begin_inset Formula $p(\mathbf{x}|\mathcal{C}_{k})$
+\end_inset
+
+?
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Generative models - 
+\begin_inset Formula $k$
+\end_inset
+
+-nearest neighbours
+\series bold
+ 
+\series default
+classification
+\series bold
+\size largest
+\color blue
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bayesian classification 
+\begin_inset Formula 
+\[
+\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\:p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+kNN
+\series default
+ models the class-conditional distributions by
+\begin_inset Formula 
+\[
+p(\mathbf{x}\vert\mathcal{C}_{k})=\frac{K_{k}}{N_{k}\cdot V},
+\]
+
+\end_inset
+
+where 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $V$
+\end_inset
+
+ is the volume of a sphere centered on 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ just big enough to contain exactly 
+\begin_inset Formula $K$
+\end_inset
+
+ neighbours.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K_{k}$
+\end_inset
+
+ is number observations from class 
+\begin_inset Formula $k$
+\end_inset
+
+ in that sphere.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $N_{k}$
+\end_inset
+
+ is the total number of observations in class 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Classification
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename LogRegkNNClassification.png
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Generative models - naive Bayes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Naive Bayes
+\series default
+\color inherit
+: 
+\series bold
+features 
+\series default
+are assumed 
+\series bold
+independent
+\series default
+
+\begin_inset Formula 
+\[
+p(\mathbf{x}|\mathcal{C}_{k})=\prod_{j=1}^{n}p(x_{j}|\mathcal{C}_{k})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Naive Bayes solution
+\begin_inset Formula 
+\[
+\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\left[\prod_{j=1}^{n}p(x_{j}|\mathcal{C}_{k})\right]p(\mathcal{C}_{k})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: 
+\begin_inset Formula $K=2$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\mathcal{C}_{1}=$
+\end_inset
+
+positive movie review and 
+\begin_inset Formula $\mathcal{C}_{2}=$
+\end_inset
+
+negative movie review
+\end_layout
+
+\begin_layout Itemize
+Binary word features: 
+\begin_inset Formula $x_{j}=\text{has('fantastic')}$
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\hat{p}\left(\textnormal{has('fantastic')}|\text{positive}\right)=\frac{\text{Number of positive reviews containing the word 'fantastic'}}{\text{Number of positive reviews}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If all features are continuous we can use a multivariate normal distribution
+ for each class: 
+\begin_inset Formula 
+\[
+\mathbf{x}\vert\mathcal{C}_{k}\sim N(\mu_{k},\Sigma_{k})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $\Sigma_{k}=\Sigma$
+\end_inset
+
+ for all 
+\begin_inset Formula $k$
+\end_inset
+
+, we obtain 
+\series bold
+\color blue
+linear discriminant analysis
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+LDA
+\series default
+\color inherit
+) which has linear decision boundaries.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discriminative models
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Direct modeling of 
+\begin_inset Formula $p(\mathcal{C}_{k}|\mathbf{x})$
+\end_inset
+
+.
+ No need to model 
+\begin_inset Formula $p(\mathbf{x}|\mathcal{C}_{k})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logistic regression 
+\color inherit
+
+\begin_inset Formula 
+\[
+Pr(\text{positive review}\vert\mathbf{x})=\frac{\exp(w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p})}{1+\exp(w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+When the response is continuous: direct models of 
+\begin_inset Formula $p(Y\vert\mathbf{x})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Linear regression
+\series default
+\color inherit
+: 
+\begin_inset Formula 
+\[
+Y=w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p}+\varepsilon,\;\;\varepsilon\overset{indep}{\sim}N(0,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Poisson regression
+\series default
+\color inherit
+ for counts 
+\begin_inset Formula $(Y\in\{0,1,2,...\}$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+Y\vert\mathbf{x}\overset{iid}{\sim}Poisson\left[\lambda=\exp\left(w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Bias-Variance trade-off
 \end_layout
 
 \end_inset
@@ -2141,6 +2833,17 @@ ities.
 
 \begin_layout Itemize
 Bias variance trade-off
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename BiasVsVariance.pdf
+	scale 90
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -2321,470 +3024,6 @@ Classification - Bootstrap sample 5
 \end_inset
 
 
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Density estimation
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Kernel-density estimators
-\end_layout
-
-\begin_layout Itemize
-Nearest-neighbour methods
-\end_layout
-
-\begin_layout Itemize
-Mixture models
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Generative vs Discriminative models
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-Generative models
-\series default
-: Bayes theorem 
-\begin_inset Formula $p(s\vert x)\propto p(x\vert s)p(s).$
-\end_inset
-
- Model: 
-\begin_inset Formula $p(x\vert s)p(s)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Discriminative models
-\series default
-: Models 
-\begin_inset Formula $p(s\vert x)$
-\end_inset
-
- directly.
-\end_layout
-
-\begin_layout Itemize
-Discuss pros and cons of generative models vs discriminative.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Regression with a binary response
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-If 
-\begin_inset Formula $Y$
-\end_inset
-
- is continuous on 
-\begin_inset Formula $\mathbb{R}$
-\end_inset
-
- we may use linear Gaussian regression: 
-\begin_inset Formula 
-\[
-Y=w_{0}+w_{1}\cdot x+\varepsilon,\;\;\varepsilon\overset{indep}{\sim}N(0,\sigma^{2})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-This model may alternatively be written
-\begin_inset Formula 
-\[
-Y\vert(X=x)\sim N\left(\mu(x),\sigma^{2}\right),\text{ where }\;\mu(x)=w_{0}+w_{1}\cdot x
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-If 
-\begin_inset Formula $Y$
-\end_inset
-
- is binary we may try: 
-\begin_inset Formula 
-\[
-Y\vert(X=x)\overset{indep}{\sim}Bernoulli\left(\theta(x)\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Common functional form for 
-\begin_inset Formula $\theta(x)$
-\end_inset
-
- (
-\series bold
-\color blue
-logistic regression
-\series default
-\color inherit
-):
-\begin_inset Formula 
-\[
-\theta(x)=\frac{\exp(w_{0}+w_{1}\cdot x)}{1+\exp(w_{0}+w_{1}\cdot x)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Generative models - Bayesian classification
-\series bold
-\size largest
-\color blue
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Bayesian classification
-\series default
-\color inherit
- among 
-\series bold
-
-\begin_inset Formula $K$
-\end_inset
-
-
-\series default
- classes
-\begin_inset Formula 
-\[
-\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\:p(\mathcal{C}_{k}|\mathbf{x})
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $\mathbf{x}=(x_{1},...,x_{n})$
-\end_inset
-
- is a feature vector.
-\end_layout
-
-\begin_layout Itemize
-By 
-\series bold
-Bayes' theorem
-\series default
-
-\begin_inset Formula 
-\[
-p(\mathcal{C}_{k}|\mathbf{x})=\frac{p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})}{p(\mathbf{x})}\propto p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Bayesian classification
-\begin_inset Formula 
-\[
-\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\:p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $p(\mathcal{C}_{k})$
-\end_inset
-
- can be easily estimated from training data by relative frequencies.
-\end_layout
-
-\begin_layout Itemize
-But how do we compute 
-\begin_inset Formula $p(\mathbf{x}|\mathcal{C}_{k})$
-\end_inset
-
-?
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Generative model: Naive Bayes
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Naive Bayes
-\series default
-\color inherit
- (
-\series bold
-NB
-\series default
-): 
-\series bold
-features are assumed independent
-\series default
-
-\begin_inset Formula 
-\[
-p(\mathbf{x}|\mathcal{C}_{k})=\prod_{j=1}^{n}p(x_{j}|\mathcal{C}_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Naive Bayes solution
-\begin_inset Formula 
-\[
-\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\left[\prod_{j=1}^{n}p(x_{j}|\mathcal{C}_{k})\right]p(\mathcal{C}_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Example: 
-\begin_inset Formula $K=2$
-\end_inset
-
-.
- 
-\begin_inset Formula $\mathcal{C}_{1}=$
-\end_inset
-
-positive movie review and 
-\begin_inset Formula $\mathcal{C}_{2}=$
-\end_inset
-
-negative movie review
-\end_layout
-
-\begin_layout Itemize
-Binary word features: 
-\begin_inset Formula $x_{j}=\text{has('fantastic')}$
-\end_inset
-
-
-\size footnotesize
-
-\begin_inset Formula 
-\[
-\hat{p}\left(\textnormal{has('fantastic')}|\text{positive}\right)=\frac{\text{Number of positive reviews containing the word 'fantastic'}}{\text{Number of positive reviews}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Generative model: discriminant analysis
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-If all features are continuous we can use a multivariate normal distribution
- for each class: 
-\begin_inset Formula 
-\[
-\mathbf{x}\vert\mathcal{C}_{k}\sim N(\mu_{k},\Sigma_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-If 
-\begin_inset Formula $\Sigma_{k}=\Sigma$
-\end_inset
-
- for all 
-\begin_inset Formula $k$
-\end_inset
-
-, we obtain 
-\series bold
-linear discriminant analysis
-\series default
- (
-\series bold
-LDA
-\series default
-) which has linear decision boundaries.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Discriminative model: logistic regression
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Direct modeling of 
-\begin_inset Formula $p(\mathcal{C}_{k}|\mathbf{x})$
-\end_inset
-
-.
- No need to model 
-\begin_inset Formula $p(\mathbf{x}|\mathcal{C}_{k})$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Logistic regression 
-\color inherit
-
-\begin_inset Formula 
-\[
-Pr(\text{positive review}\vert\mathbf{x})=\frac{\exp(w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p})}{1+\exp(w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p})}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Movie reviews again.
 \end_layout
 
 \end_deeper
