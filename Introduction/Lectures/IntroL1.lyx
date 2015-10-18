@@ -216,39 +216,57 @@ topics
 
 \begin_deeper
 \begin_layout Itemize
+
+\color blue
 Basic concepts in machine learning.
  Software for ML.
 \end_layout
 
 \begin_layout Itemize
+
+\color blue
 Regression, regularization and model selection
 \end_layout
 
 \begin_layout Itemize
+
+\color blue
 Classification methods
 \end_layout
 
 \begin_layout Itemize
+
+\color blue
 Dimensionality reduction and uncertainty estimation
 \end_layout
 
 \begin_layout Itemize
+
+\color blue
 Support vector machines and kernel methods
 \end_layout
 
 \begin_layout Itemize
+
+\color blue
 Gaussian processes and mixture models
 \end_layout
 
 \begin_layout Itemize
+
+\color red
 Splines and additive models
 \end_layout
 
 \begin_layout Itemize
+
+\color red
 Neural networks and deep learning
 \end_layout
 
 \begin_layout Itemize
+
+\color red
 Ensemble methods and high-dimensional problems
 \end_layout
 
@@ -286,16 +304,19 @@ Course structure:
 \color blue
 Lectures.
  
-\series default
-\color inherit
-Approx 2 per topic.
- Concepts and theory.
-\begin_inset VSpace bigskip
-\end_inset
-
-
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+Approx 2 per topic.
+ 
+\end_layout
+
+\begin_layout Itemize
+Concepts and theory.
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 
 \series bold
@@ -304,29 +325,47 @@ Labs.
 
 \series default
 \color inherit
- One per topic.
- Practical implemenations of methods.
-\begin_inset VSpace bigskip
-\end_inset
-
-
+ 
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+One per topic.
+ 
+\end_layout
+
+\begin_layout Itemize
+Practical implemenations of methods.
+\end_layout
+
+\begin_layout Itemize
+Individual report + aggregate group report
+\end_layout
+
+\begin_layout Itemize
+Reports submission via LISAM
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 
 \series bold
 \color blue
 Seminars.
  
-\series default
-\color inherit
-Presentation and discussion of labs.
-\begin_inset VSpace bigskip
-\end_inset
-
-
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+Two labs discussed at one seminar.
+\end_layout
+
+\begin_layout Itemize
+Presentation of group reports.
+ Randomly selected persons.
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Itemize
 
@@ -1846,7 +1885,7 @@ Active learning
 status open
 
 \begin_layout Plain Layout
-Unsupervised: Density estimation
+Histogram and kernel density estimation 
 \end_layout
 
 \end_inset
@@ -2013,7 +2052,7 @@ Fish length - kernel density estimates
 status open
 
 \begin_layout Plain Layout
-Unsupervised: Density estimation
+k-nearest neighbours density estimation
 \end_layout
 
 \end_inset
@@ -2032,7 +2071,13 @@ Unsupervised: Density estimation
 -nearest neighbours
 \series default
 \color inherit
-: 
+ (
+\series bold
+\color blue
+kNN
+\series default
+\color inherit
+): 
 \begin_inset Formula 
 \[
 p(x)=\frac{K}{NV}
@@ -2071,6 +2116,13 @@ where
 \end_inset
 
 .
+\series bold
+\color black
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -2139,7 +2191,7 @@ Fish length - kNN density estimates
 status open
 
 \begin_layout Plain Layout
-Unsupervised: Density estimation
+Mixture of normals density estimation
 \end_layout
 
 \end_inset
@@ -2165,6 +2217,10 @@ p(y)=\pi_{1}\cdot\phi(y\vert\mu_{1},\sigma_{1}^{2})+\pi_{2}\cdot\phi(y\vert\mu_{
 \end_inset
 
 
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2178,6 +2234,13 @@ Mixture of normals with
 p(y)=\sum_{k=1}^{K}\pi_{k}\cdot\phi(y\vert\mu_{k},\sigma_{k}^{2})
 \]
 
+\end_inset
+
+
+\series bold
+\color black
+
+\begin_inset VSpace medskip
 \end_inset
 
 
@@ -2198,6 +2261,18 @@ Maximum likelihood or Bayesian methods to estimate the model parameters:
 \end_inset
 
 .
+\series bold
+\color black
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+It is possible to use other distrbutions than the normal in the mixture.
+ Example: mixture of Poissons for count data.
 \end_layout
 
 \end_deeper
@@ -2241,7 +2316,7 @@ Fish length - Mixture of normals
 status open
 
 \begin_layout Plain Layout
-Three types of supevised models
+Three types of supervised models
 \end_layout
 
 \end_inset
@@ -2283,18 +2358,6 @@ Generative models
 .
 \end_layout
 
-\begin_layout Itemize
-Bayes theorem 
-\begin_inset Formula $p(s\vert x)\propto p(x\vert s)p(s).$
-\end_inset
-
- Model: 
-\begin_inset Formula $p(x\vert s)p(s)$
-\end_inset
-
-.
-\end_layout
-
 \end_deeper
 \begin_layout Itemize
 
@@ -2304,7 +2367,7 @@ Discriminative models
 \series default
 \color inherit
 : Models 
-\begin_inset Formula $p(s\vert x)$
+\begin_inset Formula $p(\mathcal{C}_{k}\vert\mathbf{x})$
 \end_inset
 
  directly.
@@ -2331,6 +2394,10 @@ Discriminant function models
 
 .
  No probabilities are involved.
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2435,7 +2502,11 @@ Bayesian classification
 \begin_inset Formula $p(\mathcal{C}_{k})$
 \end_inset
 
- can be easily estimated from training data by relative frequencies.
+ can easily be estimated by the proportion of observations from class 
+\begin_inset Formula $k$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -2456,7 +2527,6 @@ But how do we compute
 status open
 
 \begin_layout Plain Layout
-Generative models - 
 \begin_inset Formula $k$
 \end_inset
 
@@ -2478,18 +2548,6 @@ classification
 
 \begin_deeper
 \begin_layout Itemize
-Bayesian classification 
-\begin_inset Formula 
-\[
-\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\:p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
 
 \series bold
 kNN
@@ -2510,11 +2568,11 @@ where
 \begin_inset Formula $V$
 \end_inset
 
- is the volume of a sphere centered on 
+ is the volume of the smallest sphere centered on 
 \begin_inset Formula $\mathbf{x}$
 \end_inset
 
- just big enough to contain exactly 
+ that contains exactly 
 \begin_inset Formula $K$
 \end_inset
 
@@ -2546,6 +2604,38 @@ where
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+kNN model of 
+\begin_inset Formula $p(\mathbf{x})$
+\end_inset
+
+ and 
+\begin_inset Formula $p(\mathcal{C}_{k})$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+p(\mathbf{x})=\frac{K}{N\cdot V}\qquad p(\mathcal{C}_{k})=\frac{N_{k}}{N}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+kNN classification probabilities:
+\begin_inset Formula 
+\[
+p(\mathcal{C}_{k}|\mathbf{x})=\frac{p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})}{p(\mathbf{x})}=\frac{K_{k}}{K}.
+\]
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Separator
 
@@ -2660,7 +2750,7 @@ Binary word features:
 
 \begin_inset Formula 
 \[
-\hat{p}\left(\textnormal{has('fantastic')}|\text{positive}\right)=\frac{\text{Number of positive reviews containing the word 'fantastic'}}{\text{Number of positive reviews}}
+\hat{p}\left(\textnormal{has('fantastic')}|\text{positive}\right)=\frac{\text{\# positive reviews with the word 'fantastic'}}{\text{\# of positive reviews}}
 \]
 
 \end_inset
@@ -2669,40 +2759,23 @@ Binary word features:
 \end_layout
 
 \begin_layout Itemize
-If all features are continuous we can use a multivariate normal distribution
- for each class: 
+For 
+\series bold
+continuous
+\series default
+ 
+\series bold
+features
+\series default
+ we can use a normal distribution for each class: 
 \begin_inset Formula 
 \[
-\mathbf{x}\vert\mathcal{C}_{k}\sim N(\mu_{k},\Sigma_{k})
+x_{j}\vert\mathcal{C}_{k}\sim N(\mu_{jk},\sigma_{jk}^{2})
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-If 
-\begin_inset Formula $\Sigma_{k}=\Sigma$
-\end_inset
-
- for all 
-\begin_inset Formula $k$
-\end_inset
-
-, we obtain 
-\series bold
-\color blue
-linear discriminant analysis
-\series default
-\color inherit
- (
-\series bold
-\color blue
-LDA
-\series default
-\color inherit
-) which has linear decision boundaries.
 \end_layout
 
 \end_deeper
@@ -2822,13 +2895,12 @@ The Bias-Variance trade-off
 
 \begin_deeper
 \begin_layout Itemize
-Linear regression has low variance, but may have large bias if truth is
+Logistic regression has low variance, but may have large bias if truth is
  non-linear.
 \end_layout
 
 \begin_layout Itemize
-k-nearest can have large variance, but low bias since it can adapt to non-linear
-ities.
+kNN can have large variance, but low bias since it can adapt to non-linearities.
 \end_layout
 
 \begin_layout Itemize
@@ -2839,7 +2911,7 @@ Bias variance trade-off
 \align center
 \begin_inset Graphics
 	filename BiasVsVariance.pdf
-	scale 90
+	scale 85
 
 \end_inset
 
@@ -3066,6 +3138,10 @@ Flexible decision boundary in classification
 
 \begin_layout Itemize
 Flexible distributions (heavy tails for outliers)
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -3076,6 +3152,12 @@ But allowing for too much flexibility leads to
 overfitting
 \color inherit
 .
+\series default
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -3112,7 +3194,7 @@ Regularization
 
 \begin_deeper
 \begin_layout Itemize
-The solution to the flexible without overfitting dilemma is 
+The solution to the flexible-without-overfitting dilemma is 
 \series bold
 \color blue
 regularization
@@ -3125,7 +3207,7 @@ regularization
 Example: polynomial regression
 \begin_inset Formula 
 \[
-y=w_{0}+w_{1}x+w_{2}x^{2}+...+w_{p}x^{p}+\varepsilon\qquad\varepsilon\overset{iid}{\text{\textasciitilde}}N(0,\sigma^{2})
+y=w_{0}+w_{1}x+w_{2}x^{2}+...+w_{p}x^{p}+\varepsilon\qquad\varepsilon\overset{iid}{\sim}N(0,\sigma^{2})
 \]
 
 \end_inset
@@ -3141,8 +3223,10 @@ Two sides of the same (regularization) coin:
 \begin_layout Itemize
 
 \series bold
+\color blue
 Complexity penalty
 \series default
+\color inherit
 
 \begin_inset Formula 
 \[
@@ -3157,12 +3241,14 @@ Complexity penalty
 \begin_layout Itemize
 
 \series bold
+\color blue
 Bayesian prior
 \series default
+\color inherit
 
 \begin_inset Formula 
 \[
-w_{j}\sim N\left(0,\lambda^{-1}\right)
+w_{j}\overset{iid}{\sim}N\left(0,\lambda^{-1}\right)
 \]
 
 \end_inset
@@ -3170,15 +3256,18 @@ w_{j}\sim N\left(0,\lambda^{-1}\right)
 
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 Regularization or 
 \series bold
+\color blue
 Shrinkage
 \series default
  
 \series bold
 parameter
 \series default
+\color inherit
  
 \begin_inset Formula $\lambda$
 \end_inset
@@ -3186,7 +3275,6 @@ parameter
 .
 \end_layout
 
-\end_deeper
 \end_deeper
 \begin_layout Separator
 
@@ -3274,6 +3362,10 @@ The ultimate test of a model: does it
 predict new data 
 \series default
 well?
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -3290,10 +3382,32 @@ Test
 \series default
 \color inherit
  sets.
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 Sometimes split into Training, Validation and Testing.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The test set is sometime called 
+\series bold
+\color blue
+hold-out sample
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -3319,7 +3433,7 @@ Partition the data into
 \begin_inset Formula $K$
 \end_inset
 
- sets.
+ sets (folds).
 \end_layout
 
 \begin_layout Itemize
@@ -3327,11 +3441,7 @@ Use
 \begin_inset Formula $K-1$
 \end_inset
 
- sets for training and then predict the left out 
-\begin_inset Formula $K$
-\end_inset
-
-:th set.
+ folds for training and then predict the remaining fold.
 \end_layout
 
 \begin_layout Itemize
@@ -3339,7 +3449,7 @@ Repeat
 \begin_inset Formula $K$
 \end_inset
 
- times, each time with a new test.
+ times, each time with a new fold as test.
 \end_layout
 
 \end_deeper
@@ -3375,7 +3485,13 @@ Point predictions based on features
 \end_layout
 
 \begin_layout Itemize
-Mean Squared Prediction Errors (MSPE)
+
+\series bold
+\color blue
+Mean Squared Prediction Errors
+\series default
+\color inherit
+ (MSPE)
 \begin_inset Formula 
 \[
 MSPE=\frac{1}{n_{test}}\sum_{i\in Test}\left(y_{i}-f\left(\mathbf{x}_{i}\right)\right)^{2}
@@ -3394,7 +3510,11 @@ MSPE=\frac{1}{n_{test}}\sum_{i\in Test}\left(y_{i}-f\left(\mathbf{x}_{i}\right)\
 \end_layout
 
 \begin_layout Itemize
-Log Predictive Score (LPS)
+
+\series bold
+Log Predictive Score
+\series default
+ (LPS)
 \begin_inset Formula 
 \[
 LPS=\frac{1}{n_{test}}\sum_{i\in Test}\log p(y_{i}\vert\mathbf{x}_{i},\hat{\mathbf{w}})
@@ -5025,6 +5145,10 @@ Precision and recall depends on the
 \series bold
 \color blue
 decision threshold.
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -5033,6 +5157,13 @@ decision threshold.
 
 .
  Do we send it to the spam-box? 
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -5041,6 +5172,13 @@ Is
 \end_inset
 
  a good threshold?
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -5051,6 +5189,13 @@ Optimal decisions
 \series default
 \color inherit
  depend on the consequences.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -5061,11 +5206,25 @@ ROC-curve
 \series default
 \color inherit
 : Receiver Operating Characteristic.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 ROC: Plots the true positive rate (TPR) against the false positive rate
  (FPR) at various thresholds.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
