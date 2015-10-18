@@ -10,7 +10,7 @@
 nTrain <- 10000 # Number of training instances. maximum is 60000
 # END USER INPUT
 
-setwd('~/Dropbox/Teaching/ProbStatUProg/')  # Set working directory
+setwd('~/Dropbox/Teaching/IntroToML/')      # Set working directory
 load('Data/mnist/mnist')                    # Load mnist data (http://yann.lecun.com/exdb/mnist/). 
                                             # Contains the two lists train and test.
                                             # train$x[3,] contains the 28*28=784 grayscale (0-255)
