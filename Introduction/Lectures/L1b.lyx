@@ -126,7 +126,7 @@ Introduction to Machine Learning
 \begin_inset Newline newline
 \end_inset
 
-Topic 1: Basic concepts
+Topic 1: Bayesian learning
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -134,7 +134,7 @@ Topic 1: Basic concepts
 \begin_inset Newline newline
 \end_inset
 
-Lecture 1a
+Lecture 1b
 \end_layout
 
 \begin_layout Author
@@ -263,7 +263,9 @@ Multinomial model with Dirichlet prior
 status open
 
 \begin_layout Plain Layout
-What is machine learning?
+
+\size larger
+The likelihood function - Bernoulli trials
 \end_layout
 
 \end_inset
@@ -272,474 +274,106 @@ What is machine learning?
 \end_layout
 
 \begin_deeper
-\begin_layout Quote
-Machine learning is a subfield of 
+\begin_layout Itemize
+
 \series bold
-computer science
+Bernoulli trials
 \series default
- that evolved from the study of 
-\series bold
-\color blue
-pattern recognition
-\series default
-\color inherit
- and computational learning theory in 
-\series bold
-\color blue
-artificial intelligence
-\series default
-\color inherit
-.
- 
-\begin_inset VSpace bigskip
+:
+\begin_inset Formula 
+\[
+x_{1},...,x_{n}|\theta\overset{iid}{\sim}Bern(\theta).
+\]
+
 \end_inset
 
 
-\end_layout
-
-\begin_layout Quote
-Machine learning explores the study and construction of 
-\series bold
-\color blue
-algorithms
-\series default
-\color inherit
- that can 
-\series bold
-\color blue
-learn
-\series default
-\color inherit
- from and make 
-\series bold
-\color blue
-predictions
-\series default
-\color inherit
- on 
-\series bold
-\color blue
-data
-\series default
-\color inherit
-.
- Such algorithms operate by building a model from example inputs in order
- to make data-driven predictions or 
-\series bold
-\color blue
-decisions
-\series default
-\color inherit
-, rather than following strictly static program instructions.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Quote
-Machine learning is closely related to and often overlaps with 
-\series bold
-\color blue
-computational statistics
-\series default
-\color inherit
-; a discipline that also specializes in prediction-making.
 \begin_inset VSpace medskip
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Likelihood
+\series default
+ from 
+\begin_inset Formula $s=\sum_{i=1}^{n}x_{i}$
+\end_inset
+
+ successes and 
+\begin_inset Formula $f=n-s$
+\end_inset
+
+ failures.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+p(x_{1},...,x_{n}|\theta) & = & p(x_{1}|\theta)\cdots p(x_{n}|\theta)=\theta^{s}(1-\theta)^{f}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Maximum likelihood estimator
+\series default
+ 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ maximizes 
+\begin_inset Formula $p(x_{1},...,x_{n}|\theta)$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Given the data 
+\begin_inset Formula $x_{1},...,x_{n}$
+\end_inset
+
+, we may plot 
+\begin_inset Formula $p(x_{1},...,x_{n}|\theta)$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-
-\size footnotesize
-\color blue
-\begin_inset space \qquad{}
-\end_inset
-
-
-\begin_inset space \qquad{}
-\end_inset
-
-Wikipedia (Oct 11, 2015).
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-What is machine learning?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Machine learning is an area in the 
-\series bold
-intersection
-\series default
- of 
-\series bold
-\color blue
-computer science
-\series default
-\color inherit
-, 
-\series bold
-\color blue
-statistics
-\series default
-\color inherit
- and 
-\series bold
-\color blue
-artificial intelligence
-\series default
-\color inherit
-.
- It is closely related to 
-\series bold
-data mining
-\series default
-, 
-\series bold
-knowledge discovery
-\series default
- and 
-\series bold
-data science
-\series default
-.
- 
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Machine learning uses mainly 
-\series bold
-\color blue
-statistical
-\color inherit
- (probabilistic) 
-\color blue
-models
-\series default
-\color inherit
- 
-\series bold
-for analyzing 
-\color blue
-data
-\series default
-\color inherit
-.
- Data mining and knowledge discovery tend to use less rigorous, but often
- effective, algorithms.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Machine learning differs from traditional statistics by a 
-\series bold
-heavier focus on 
-\color blue
-prediction
-\series default
-\color inherit
-, and lesser focus on interpretation.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Models in machine learning are often 
-\series bold
-more 
-\color blue
-flexible
-\series default
-\color inherit
- (more parameters) than those in traditional statistics, and 
-\series bold
-regularization
-\series default
- to 
-\series bold
-avoid over-fitting
-\series default
- is therefore a much bigger concern.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Machine learning applications often involve large data data sets (
-\series bold
-\color blue
-big data
-\series default
-\color inherit
-), and 
-\series bold
-\color blue
-computational complexity
-\series default
-\color inherit
- of estimation algorithms is therefore important.
- 
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Statistics or Computer Science? Both!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Quote
-I keep saying the sexy job in the next ten years will be statisticians.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\size tiny
-Hal Varian, Chief Economist, Google.
-\size default
-
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Quote
-But the challenges for massive data go beyond the storage, indexing, and
- querying … and, instead, hinge on the ambitious goal of inference.
- 
-\series bold
-\color blue
-Inference
-\series default
-\color inherit
- is the problem of 
-\series bold
-\color blue
-turning data into knowledge
-\series default
-\color inherit
- … Statistical rigor is necessary to justify the inferential leap from data
- to knowledge …” 
-\begin_inset Newline newline
-\end_inset
-
-
-\size tiny
-from the report 
-\begin_inset Quotes eld
-\end_inset
-
-Frontiers in Massive Data Analysis
-\begin_inset Quotes erd
-\end_inset
-
-, US National Research Council.
-\size default
-
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Quote
-Computer scientists involved in building big-data systems must develop a
- deeper awareness of inferential issues, while statisticians must concern
- themselves with scalability, algorithmic issues, and real-time decision-making.
-\begin_inset Newline newline
-\end_inset
-
-
-\size tiny
-from the report 
-\begin_inset Quotes eld
-\end_inset
-
-Frontiers in Massive Data Analysis
-\begin_inset Quotes erd
-\end_inset
-
-, US National Research Council.
-\end_layout
-
-\begin_layout Quote
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-But why probability models?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Probability models and statistical inference provide a 
-\series bold
-framework
-\series default
-.
- 
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-A principled 
-\series bold
-way to think
-\series default
- about any problem in machine learning.
- 
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Probabilistic models can be 
-\series bold
-evaluated
-\series default
- in detail.
- Locate and understand the deficiencies in the model.
- Improve.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Probabilistic models 
-\series bold
-quantify uncertainties
-\series default
-.
- Needed for data-driven decision making.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Quote
-As robotics is now moving into the open world, the issue of 
-\series bold
-\size small
-\color blue
-uncertainty
-\series default
-\size default
-\color inherit
- has become a major stumbling block for the design of capable robot systems.
- Managing uncertainty is possibly the most important step towards robust
- real-world robot systems.
-\begin_inset Newline newline
-\end_inset
-
-
-\size tiny
-from the book Probabilistic Robotics by Thrun et al.
-
-\size default
- 
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Classifying handwritten digits
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Quotation
 \align center
 \begin_inset Graphics
-	filename Digits.png
-	lyxscale 30
-	scale 25
+	filename ../../../BayesLearning/Slides/BernLike_n10s4.eps
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../../BayesLearning/Slides/BernLike_n100s40.eps
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../../BayesLearning/Slides/BernLike_n10s9.eps
+	scale 20
 
 \end_inset
 
@@ -756,7 +390,278 @@ Classifying handwritten digits
 status open
 
 \begin_layout Plain Layout
-Classifying handwritten digits
+
+\size larger
+Uncertainty and subjective probability
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Statements like 
+\begin_inset Formula $\mathrm{Pr}$
+\end_inset
+
+
+\begin_inset Formula $(\theta<0.6\vert\text{data})$
+\end_inset
+
+ only make sense if 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is random.
+ 
+\end_layout
+
+\begin_layout Itemize
+But 
+\begin_inset Formula $\theta$
+\end_inset
+
+ may be
+\shape italic
+ 
+\shape default
+a fixed natural constant?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bayesian: doesn't matter if 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is fixed or random
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Do You know the value of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ or not?
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p(\theta)$
+\end_inset
+
+ reflects Your knowledge/
+\series bold
+uncertainty
+\series default
+ about 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Subjective probability
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+The statement 
+\begin_inset Formula $p(10\text{th}\,\text{decimal of }\pi=9)=0.1$
+\end_inset
+
+ makes sense.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../../BayesLearning/Slides/deFinettiBook.jpeg
+	lyxscale 20
+	scale 40
+
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../../BayesLearning/Slides/deFinetti.jpg
+	lyxscale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../../BayesLearning/Slides/pi_circle.jpg
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Bayesian learning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Bayesian learning
+\series default
+ about a model parameter 
+\begin_inset Formula $\theta$
+\end_inset
+
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+state your 
+\series bold
+prior
+\series default
+ knowledge about 
+\begin_inset Formula $\theta$
+\end_inset
+
+ as a probability distribution 
+\begin_inset Formula $p(\theta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+collect data
+\series default
+ 
+\begin_inset Formula $x$
+\end_inset
+
+ and form the 
+\series bold
+likelihood
+\series default
+ function 
+\begin_inset Formula $p(x\vert\theta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+combine
+\series default
+ your prior knowledge 
+\begin_inset Formula $p(\theta)$
+\end_inset
+
+ with the data information 
+\begin_inset Formula $p(x\vert\theta)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+How to combine
+\series default
+ the two sources of information? 
+\series bold
+\color blue
+Bayes' theorem
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../../BayesLearning/Slides/BayesTheoremNeon.jpg
+	lyxscale 20
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Great theorems make great tattoos
 \end_layout
 
 \end_inset
@@ -769,48 +674,13 @@ Classifying handwritten digits
 
 \series bold
 \color blue
-Training
-\series default
-\color inherit
- data: 60000 images.
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Test
-\series default
-\color inherit
- data: 10000 images.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Features
-\series default
-\color inherit
-: use the intensities (0-255, but scaled to 0-1) in the 
-\begin_inset Formula $28\times28=784$
-\end_inset
-
- pixels as explanatory variables.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Multinomial regression
+Bayes' theorem
 \series default
 \color inherit
 
 \begin_inset Formula 
 \[
-Pr(\text{Digit}=i\vert\text{features})=\frac{\exp\left(w_{0,i}+w_{1,i}x_{1}+...+w_{784,i}x_{784}\right)}{\sum_{j=0}^{9}\exp\left(w_{0,j}+w_{1,j}x_{1}+...+w_{784,j}x_{784}\right)}
+p(\theta|Data)=\frac{p(Data|\theta)p(\theta)}{p(Data)}.
 \]
 
 \end_inset
@@ -819,113 +689,193 @@ Pr(\text{Digit}=i\vert\text{features})=\frac{\exp\left(w_{0,i}+w_{1,i}x_{1}+...+
 \end_layout
 
 \begin_layout Itemize
-MANY parameters to estimate.
- 
-\series bold
-\color blue
-Overfitting
-\series default
-\color inherit
- is a major concern.
-\end_layout
+All you need to know:
+\begin_inset Formula 
+\[
+p(\theta|Data)\propto p(Data|\theta)p(\theta)
+\]
 
-\begin_layout Itemize
-
-\series bold
-\color blue
-Lasso
-\series default
-\color inherit
- (
-\series bold
-elastic net
-\series default
-) 
-\series bold
-\color blue
-penalty
-\series default
-\color inherit
- on model complexity.
- The weights 
-\begin_inset Formula $w_{k,i}$
 \end_inset
 
- are shrunk toward zero, sometimes exactly to zero.
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Support vector machine
-\series default
-\color inherit
- (
-\series bold
-\color blue
-SVM
-\series default
-\color inherit
-).
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Classifying handwritten digits
-\end_layout
+or
+\begin_inset Formula 
+\[
+\text{Posterior}\propto\text{ Likelihood }\cdot\text{ Prior}
+\]
 
 \end_inset
 
 
 \end_layout
 
-\begin_deeper
-\begin_layout Quotation
-\align center
-\begin_inset Graphics
-	filename DigitClassProbs.png
-	lyxscale 30
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Handwritten digits - confusion matrix
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename SVMConfusion60000Training.png
-	lyxscale 30
+	filename /Users/matvi05/Dropbox/Seminars/Umea2013/BayesTattoo.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Bernoulli trials - Beta prior
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Model
+\series default
+ 
+\begin_inset Formula 
+\[
+x_{1},...,x_{n}|\theta\overset{iid}{\sim}Bern(\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prior
+\series default
+
+\begin_inset Formula 
+\[
+\theta\sim Beta(\alpha,\beta)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+p(\theta)=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\theta^{\alpha-1}(1-\theta)^{\beta-1}\text{ \ for }0\leq\theta\leq1\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Posterior
+\series default
+
+\begin_inset Formula 
+\begin{eqnarray*}
+p(\theta|x_{1},...,x_{n}) & \propto & p(x_{1},...,x_{n}|\theta)p(\theta)\\
+ & \propto & \theta^{s}(1-\theta)^{f}\theta^{\alpha-1}(1-\theta)^{\beta-1}\\
+ & = & \theta^{s+\alpha-1}(1-\theta)^{f+\beta-1}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+This is proportional to the 
+\begin_inset Formula $Beta(\alpha+s,\beta+f)$
+\end_inset
+
+ density.
+ 
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+prior-to-posterior
+\series default
+ mapping reads
+\begin_inset Formula 
+\[
+\theta\sim Beta(\alpha,\beta)\overset{x_{1},...,x_{n}}{\Longrightarrow}\theta|x_{1},...,x_{n}\sim Beta(\alpha+s,\beta+f).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Beta distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Beta random variable
+\series default
+
+\begin_inset Formula 
+\[
+X\sim Beta(\alpha,\beta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Probability density function (
+\series bold
+pdf
+\series default
+)
+\begin_inset Formula 
+\[
+f(x)=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-\theta x)\text{ \ for }0\leq x\leq1\text{.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Beta_distribution_pdf.svg
 	scale 40
 
 \end_inset
@@ -943,38 +893,7 @@ Handwritten digits - confusion matrix
 status open
 
 \begin_layout Plain Layout
-Smartphone typing predictions
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename ../../../TextMining/ModuleStats4Text/SwiftKeyWordPred.png
-	lyxscale 20
-	scale 15
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Smartphone typing predictions
+Bernoulli example: spam emails
 \end_layout
 
 \end_inset
@@ -984,101 +903,16 @@ Smartphone typing predictions
 
 \begin_deeper
 \begin_layout Itemize
-Assume the following Markov model for a sentence 
-\begin_inset Formula 
-\[
-p(w_{1}w_{2}\cdots w_{k})=p(w_{1}\vert<s>)\cdot p(w_{2}|w_{1})p(w_{3}|w_{2})\cdots p(w_{n}|w_{n-1})
-\]
-
+George has gone through his collection of 
+\begin_inset Formula $4601$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-Need a model for
-\begin_inset Formula 
-\[
-p(w_{k}|w_{k-1})
-\]
-
+ e-mails.
+ He classified 
+\begin_inset Formula $1813$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-Example:
-\begin_inset Formula 
-\[
-p(\text{person}|\text{stupid})=0.2
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-p(\text{Mattias}|\text{stupid})=0.0001
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Maximum Likelihood (ML) estimate:
-\begin_inset Formula 
-\[
-\hat{p}(w_{k}|w_{k-1})=\frac{\text{Number of times word \ensuremath{w_{k}}}\text{ follows directly after \ensuremath{w_{k-1}}}}{\text{Number of times \ensuremath{w_{k-1}} appears in the text}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Decision
-\series default
-\color inherit
- problem: which word to suggest?
-\end_layout
-
-\begin_layout Itemize
-SwiftKey is now using Neural Networks: https://youtu.be/-vZL3e02SnE.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Detecting banknote fraud
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Dataset with 
-\begin_inset Formula $1372$
-\end_inset
-
- photographed banknotes.
- 610 of them are fraud.
+ of them to be spam.
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -1086,111 +920,17 @@ Dataset with
 \end_layout
 
 \begin_layout Itemize
-Raw data: 
-\begin_inset Formula $400\times400=160000$
+Let 
+\begin_inset Formula $x_{i}=1$
 \end_inset
 
- gray-scale pixels.
- 
-\begin_inset VSpace bigskip
+ if i:th email is spam.
+ Assume 
+\begin_inset Formula $x_{i}|\theta\overset{iid}{\sim}Bernoulli(\theta)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-Often better performance if using a smaller set of summarizing variables,
- so called 
-\series bold
-\color blue
-features
-\series default
-\color black
-, that capture the important aspects of the images.
-\color inherit
-
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-The 
-\begin_inset Formula $160000$
-\end_inset
-
- pixel variables are condensed to four 
-\series bold
-\color blue
-features
-\series default
-\color inherit
- using wavelets:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-variance of Wavelet Transformed image
-\end_layout
-
-\begin_layout Itemize
-skewness of Wavelet Transformed image
-\end_layout
-
-\begin_layout Itemize
-curtosis of Wavelet Transformed image
-\end_layout
-
-\begin_layout Itemize
-entropy of image
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Detecting banknote fraud
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-1000 images for training.
- 
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Predictions on 372 test images.
- 
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Decision
-\series default
-: signal fraud if 
-\begin_inset Formula $P(\text{Fraud}\vert\mathbf{x})>0.5$
+ and 
+\begin_inset Formula $\theta\sim\mathrm{Beta}(\alpha,\beta)$
 \end_inset
 
 .
@@ -1201,233 +941,11 @@ Decision
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-Confusion matrix
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Truth
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-No fraud
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Fraud
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="center" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Decision
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-No Fraud
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-208
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-1
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Fraud
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-160
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
+Posterior
+\begin_inset Formula 
+\[
+\theta|x\sim Beta(\alpha+1813,\beta+2788)
+\]
 
 \end_inset
 
@@ -1444,7 +962,7 @@ cellcolor{robinsegg}
 status open
 
 \begin_layout Plain Layout
-The machine learning work flow
+Spam data (n=10): prior sensitivity
 \end_layout
 
 \end_inset
@@ -1455,12 +973,8 @@ The machine learning work flow
 \begin_deeper
 \begin_layout Standard
 \align center
-
-\series bold
-\color blue
 \begin_inset Graphics
-	filename supervised-classification.png
-	lyxscale 30
+	filename /Users/matvi05/Dropbox/Projects/BayesBook/Figures/SpamDataSmall.eps
 	scale 50
 
 \end_inset
@@ -1478,7 +992,7 @@ The machine learning work flow
 status open
 
 \begin_layout Plain Layout
-Unsupervised vs Supervised learning
+Spam data (n=100): prior sensitivity
 \end_layout
 
 \end_inset
@@ -1487,125 +1001,15 @@ Unsupervised vs Supervised learning
 \end_layout
 
 \begin_deeper
-\begin_layout Itemize
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/matvi05/Dropbox/Projects/BayesBook/Figures/SpamDataMedium.eps
+	scale 50
 
-\series bold
-\color blue
-Unsupervised
-\series default
-\color inherit
-: 
-\series bold
-target values
-\series default
- (responses/
-\series bold
-labels
-\series default
-) are unknown.
- Goals: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-to discover groups or patterns in the data.
- 
-\end_layout
-
-\begin_layout Itemize
-which observations are similar? 
-\end_layout
-
-\begin_layout Itemize
-to learn a compact representation of the inputs.
- PCA.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Example models for unsupervised learning:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Mixture models
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Association learning
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Supervised
-\series default
-\color inherit
-: targets are known.
- Goals:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Build a prediction machine: inputs 
-\begin_inset Formula $\rightarrow$
 \end_inset
 
-targets.
- 
-\end_layout
 
-\end_deeper
-\begin_layout Itemize
-Example models for supervised learning:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-Regression
-\series default
-: Linear regression.
- Gaussian processes.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Classification
-\series default
-: Logistic regression, Support vector machines etc.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Semi-supervised
-\series default
-\color inherit
-: targets are known only for some observations.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Active learning
-\series default
-\color inherit
-.
- Strategies for deciding which observations to label.
 \end_layout
 
 \end_deeper
@@ -1618,7 +1022,37 @@ Active learning
 status open
 
 \begin_layout Plain Layout
-Histogram and kernel density estimation 
+Spam data (n=4601): prior sensitivity
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/matvi05/Dropbox/Projects/BayesBook/Figures/SpamDataFull.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Normal data, known variance - normal prior
 \end_layout
 
 \end_inset
@@ -1628,51 +1062,185 @@ Histogram and kernel density estimation
 
 \begin_deeper
 \begin_layout Itemize
-Histograms: Partition 
-\begin_inset Formula $x$
+Prior 
+\begin_inset Formula 
+\[
+\theta\sim N(\mu_{0},\tau_{0}^{2})
+\]
+
 \end_inset
 
--space into 
-\begin_inset Formula $g$
+
+\end_layout
+
+\begin_layout Itemize
+Posterior
+\begin_inset Formula 
+\begin{eqnarray*}
+p(\theta|x_{1},...,x_{n}) & \propto & p(x_{1},...,x_{n}|\theta,\sigma^{2})p(\theta)\\
+ & \propto & N(\theta|\mu_{n},\tau_{n}^{2}),
+\end{eqnarray*}
+
 \end_inset
 
- bins of length 
-\begin_inset Formula $\Delta$
+where
+\begin_inset Formula 
+\[
+\frac{1}{\tau_{n}^{2}}=\frac{n}{\sigma^{2}}+\frac{1}{\tau_{0}^{2}},
+\]
+
 \end_inset
 
-: 
-\begin_inset Formula $B_{1},...,B_{g}$
+
+\begin_inset Formula 
+\[
+\mu_{n}=w\bar{x}+(1-w)\mu_{0},
+\]
+
 \end_inset
 
-.
- Let 
-\begin_inset Formula $n_{i}$
+and
+\begin_inset Formula 
+\[
+w=\frac{\frac{n}{\sigma^{2}}}{\frac{n}{\sigma^{2}}+\frac{1}{\tau_{0}^{2}}}.
+\]
+
 \end_inset
 
- denote the number of observations falling in bin 
-\begin_inset Formula $i$
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Normal data, known variance - normal prior
+\end_layout
+
 \end_inset
 
-.
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Formula $\theta\sim N(\mu_{0},\tau_{0}^{2})\overset{x_{1},...,x_{n}}{\Longrightarrow}\theta|x\sim N(\mu_{n},\tau_{n}^{2}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Posterior precision = Data precision + Prior precision
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Posterior mean =
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{\text{Data precision}}{\text{Posterior precision}}$
+\end_inset
+
+(Data mean) + 
+\begin_inset Formula $\frac{\text{Prior precision}}{\text{Posterior precision}}$
+\end_inset
+
+(Prior mean) 
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Canadian wages data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Data on wages for 
+\begin_inset Formula $205$
+\end_inset
+
+ Canadian workers.
  
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../../BayesLearning/Slides/CanadianaWagesDataHist.eps
+	scale 45
 
-\series bold
-\color blue
-Histogram
-\color inherit
- estimate of the density
-\series default
-: density is constant over each bin and the density over bin 
-\begin_inset Formula $i$
 \end_inset
 
- is 
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Canadian wages
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Model
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-p(x)=\frac{n_{i}}{N\Delta}\text{ for }x\in B_{i}
+X_{1},...,X_{n}|\theta\sim N(\theta,\sigma^{2}),\text{ }\sigma^{2}=0.4
 \]
 
 \end_inset
@@ -1681,36 +1249,214 @@ p(x)=\frac{n_{i}}{N\Delta}\text{ for }x\in B_{i}
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-\color blue
-Kernel density estimator
-\series default
-\color inherit
-
+Prior
 \begin_inset Formula 
 \[
-p(x)=\frac{1}{N}\sum_{i=1}^{n}\frac{1}{h}k\left(\frac{x-x_{i}}{h}\right)
+\theta\sim N(\mu_{0},\tau_{0}^{2}),\text{ }\mu_{0}=12\text{ and }\tau_{0}=10
 \]
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Itemize
+Posterior
+\begin_inset Formula 
+\[
+\theta|x_{1},...,x_{n}\sim N\left(\mu_{n},\tau_{n}^{2}\right),
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 where 
-\begin_inset Formula $k(\cdot)$
+\begin_inset Formula $\mu_{n}=w\bar{x}+(1-w)\mu_{0}$
 \end_inset
 
- is a kernel function, e.g.
- the normal density.
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+For the Canadian wage data:
+\begin_inset Formula 
+\[
+w=\frac{\sigma^{-2}n}{\sigma^{-2}n+\tau_{0}^{-2}}=\frac{2.5\cdot205}{2.5\cdot205+1/100}=0.999.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu_{n}=w\bar{x}+(1-w)\mu_{0}=0.999\cdot13.489+(1-0.999)\cdot12\approx13.489
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\tau_{n}^{2}=\left(2.5\cdot205+1/100\right)^{-1}=0.00195
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Marginalization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Models with multiple parameters 
+\begin_inset Formula $\theta_{1},\theta_{2},...$
+\end_inset
+
+.
  
-\begin_inset Formula $h$
+\end_layout
+
+\begin_layout Itemize
+Examples: 
+\begin_inset Formula $x_{i}\overset{iid}{\sim}N(\theta,\sigma^{2})$
 \end_inset
 
- is a bandwidth parameter, e.g.
- the standard deviation 
-\begin_inset Formula $\sigma$
+; multiple regression ...
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Joint posterior distribution
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+p(\theta_{1},\theta_{2},...,\theta_{p}|y)\propto p(y|\theta_{1},\theta_{2},...,\theta_{p})p(\theta_{1},\theta_{2},...,\theta_{p}).
+\]
+
 \end_inset
 
- in a normal density.
+...
+ or in vector form:
+\begin_inset Formula 
+\[
+p(\theta)\propto p(y|\theta)p(\theta).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Complicated to graph the joint posterior.
+\end_layout
+
+\begin_layout Itemize
+Some of the parameters may not be of direct interest (
+\series bold
+\color blue
+nuisance
+\series default
+\color inherit
+).
+\end_layout
+
+\begin_layout Itemize
+Integrate out (
+\series bold
+\color blue
+marginalize
+\series default
+\color inherit
+) all nuisance parameters.
+\end_layout
+
+\begin_layout Itemize
+Example: 
+\begin_inset Formula $\theta=(\theta_{1},\theta_{2})^{\prime}$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{2}$
+\end_inset
+
+ is a nuisance.
+ 
+\series bold
+Marginal posterior
+\series default
+ of 
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+p(\theta_{1}|y) & = & \int p(\theta_{1},\theta_{2}|y)d\theta_{2}.
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -1723,69 +1469,7 @@ where
 status open
 
 \begin_layout Plain Layout
-Fish length - Histogram density estimates
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename FishHistDensEst.png
-	lyxscale 30
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Fish length - kernel density estimates
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename FishKernelDensEst.png
-	lyxscale 30
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-k-nearest neighbours density estimation
+Multinomial model with Dirichlet prior
 \end_layout
 
 \end_inset
@@ -1796,24 +1480,661 @@ k-nearest neighbours density estimation
 \begin_deeper
 \begin_layout Itemize
 
-\series bold
-\color blue
+\shape italic
+Data
+\shape default
+: 
+\begin_inset Formula $y=(y_{1},...y_{K})$
+\end_inset
+
+, where 
+\begin_inset Formula $y_{k}$
+\end_inset
+
+ counts the number of observations in the 
 \begin_inset Formula $k$
 \end_inset
 
--nearest neighbours
-\series default
-\color inherit
- (
+th category.
+ 
+\begin_inset Formula $\sum_{k=1}^{K}y_{k}=n$
+\end_inset
+
+.
+ Example: brand choices.
+\end_layout
+
+\begin_layout Itemize
+
 \series bold
 \color blue
-kNN
+Multinomial model
 \series default
 \color inherit
-): 
+:
 \begin_inset Formula 
 \[
-p(x)=\frac{K}{NV}
+p(y|\theta)\propto\prod_{k=1}^{K}\theta_{k}^{y_{k}},\text{ where }\sum_{k=1}^{K}\theta_{j}=1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\shape italic
+\emph on
+\color blue
+Prior
+\series default
+\shape default
+\color inherit
+:
+\emph default
+ 
+\begin_inset Formula $\mathrm{Dirichlet}(\alpha_{1},...,\alpha_{K})$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+p(\theta)\propto\prod_{k=1}^{K}\theta_{j}^{\alpha_{j}-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Moments of 
+\begin_inset Formula $\theta=(\theta_{1},...,\theta_{K})'\sim Dirichlet(\alpha_{1},...,\alpha_{K})$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathrm{E}(\theta_{k}) & =\frac{\alpha_{k}}{\sum_{j=1}^{K}\alpha_{j}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha_{+}=$
+\end_inset
+
+
+\begin_inset Formula $\sum_{k=1}^{K}\alpha_{k}$
+\end_inset
+
+ is a precision parameter.
+ Variance of 
+\begin_inset Formula $\theta_{k}$
+\end_inset
+
+ is large when 
+\begin_inset Formula $\alpha_{+}$
+\end_inset
+
+ is small.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Dirichlet distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename DirichletPlot.png
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Multinomial model with Dirichlet prior
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+'Non-informative': 
+\begin_inset Formula $\alpha_{1}=...=\alpha_{K}=1$
+\end_inset
+
+ (uniform and proper).
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Simulating
+\series default
+\color inherit
+ from the Dirichlet distribution:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Generate 
+\begin_inset Formula $x_{1}\sim Gamma(\alpha_{1},1),...,x_{K}\sim Gamma(\alpha_{K},1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Compute 
+\begin_inset Formula $y_{k}=x_{k}/(\sum_{j=1}^{K}x_{j})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $y=(y_{1},...,y_{K})$
+\end_inset
+
+ is a draw from the 
+\begin_inset Formula $\mathrm{Dirichlet}(\alpha_{1},...,\alpha_{K})$
+\end_inset
+
+ distribution.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\shape italic
+\emph on
+\color blue
+Prior-to-Posterior updating
+\series default
+\shape default
+\color inherit
+:
+\emph default
+
+\begin_inset Formula 
+\begin{gather*}
+Model\text{: \ \ \ \ }y=(y_{1},...y_{K})\sim\mathrm{Multin}(n;\theta_{1},...,\theta_{K})\\
+Prior:\text{ \ \ }\theta=(\theta_{1},...,\theta_{K})\sim\mathrm{Dirichlet}(\alpha_{1},...,\alpha_{K})\\
+Posterior:\text{ \ \ }\theta|y\sim\mathrm{Dirichlet}(\alpha_{1}+y_{1},...,\alpha_{K}+y_{K}).
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example: market shares
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A recent survey among consumer smartphones owners in the U.S.
+ showed that among the 513 respondents:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+180 owned an iPhone
+\end_layout
+
+\begin_layout Itemize
+230 owned an Android phone
+\end_layout
+
+\begin_layout Itemize
+62 owned a Blackberry phone
+\end_layout
+
+\begin_layout Itemize
+41 owned some other mobile phone.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Previous survey: iPhone 30%, Android 30%, Blackberry 20% and Other 20%.
+\end_layout
+
+\begin_layout Itemize
+Pr(Android has largest share | Data)
+\end_layout
+
+\begin_layout Itemize
+Prior: 
+\begin_inset Formula $\alpha_{1}=15,\alpha_{2}=15,\alpha_{3}=10\text{ and }\alpha_{4}=10$
+\end_inset
+
+ (prior info is equivalent to a survey with only 
+\begin_inset Formula $50$
+\end_inset
+
+ respondents)
+\end_layout
+
+\begin_layout Itemize
+Posterior: 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $(\theta_{1},\theta_{2},\theta_{3},\theta_{4})|\mathbf{y}\sim\mathrm{Dirichlet(195,245,72,51)}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{R code for market share example}
+\end_layout
+
+\begin_layout Plain Layout
+
+<<MultinomialPrior2Post1, eval=TRUE, size='tiny'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Setting up data and prior
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- c(180,230,62,41) # The cell phone survey data (K=4)
+\end_layout
+
+\begin_layout Plain Layout
+
+alpha <- c(15,15,10,10) # Dirichlet prior hyperparameters 
+\end_layout
+
+\begin_layout Plain Layout
+
+nIter <- 1000 # Number of posterior draws
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Defining a function that simulates from a Dirichlet distribution 
+\end_layout
+
+\begin_layout Plain Layout
+
+SimDirichlet <- function(nIter, param){ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+  nCat <- length(param) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+  thetaDraws <- as.data.frame(matrix(NA, nIter, nCat)) # Storage.
+ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+  for (j in 1:nCat){ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+    thetaDraws[,j] <- rgamma(nIter,param[j],1) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+  } 	
+\end_layout
+
+\begin_layout Plain Layout
+
+  for (i in 1:nIter){ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+    thetaDraws[i,] = thetaDraws[i,]/sum(thetaDraws[i,])	
+\end_layout
+
+\begin_layout Plain Layout
+
+  } 	
+\end_layout
+
+\begin_layout Plain Layout
+
+  return(thetaDraws) 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Posterior sampling from Dirichlet posterior
+\end_layout
+
+\begin_layout Plain Layout
+
+thetaDraws <- SimDirichlet(nIter,y + alpha)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{R code for market share example, cont}
+\end_layout
+
+\begin_layout Plain Layout
+
+<<MultinomialPrior2Post2, eval=TRUE, size='tiny'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Posterior mean and standard deviation of Androids share (in %)
+\end_layout
+
+\begin_layout Plain Layout
+
+message(mean(100*thetaDraws[,2])) 
+\end_layout
+
+\begin_layout Plain Layout
+
+message(sd(100*thetaDraws[,2]))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Computing the posterior probability that Android is the largest
+\end_layout
+
+\begin_layout Plain Layout
+
+PrAndroidLargest <- sum(thetaDraws[,2] > max(thetaDraws[,c(1,3,4)]))/nIter
+\end_layout
+
+\begin_layout Plain Layout
+
+message(paste('Pr(Android has the largest market share) = ', PrAndroidLargest))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[fragile]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{R code for market share example, cont}
+\end_layout
+
+\begin_layout Plain Layout
+
+<<MultinomialPrior2Post3, echo = FALSE, eval=TRUE, out.height='0.5
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Plots histograms of the posterior draws 
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow = c(1,2)) # Splits the graphical window in four parts
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(100*thetaDraws[,1], breaks = 25, main ='iPhone market share (%)') 
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(100*thetaDraws[,2], breaks = 25, main ='Android market share (%)')
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Bayesian prediction
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example: Supervised learning.
+ Model: 
+\begin_inset Formula $x\rightarrow y$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Posterior predictive distribution
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+p(y_{test}|x_{test},y_{train},x_{train})=\int_{\mathbf{w}}p(y_{test}|\mathbf{w},x_{test})p(\mathbf{w}|y_{train},x_{train})d\mathbf{w}
 \]
 
 \end_inset
@@ -1823,3186 +2144,99 @@ where
 
 \begin_deeper
 \begin_layout Itemize
-\begin_inset Formula $N$
+\begin_inset Formula $p(y_{test}|\mathbf{w},x_{test})$
 \end_inset
 
- is the number of data observations
+ is the predictive distribution from the model if the parameters 
+\begin_inset Formula $\mathbf{w}$
+\end_inset
+
+ are known.
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $K$
+\begin_inset Formula $p(\mathbf{w}|y_{train},x_{train})$
 \end_inset
 
- is the number of neighbours
+ is the posterior distribution of the model parameters 
+\begin_inset Formula $\mathbf{w}$
+\end_inset
+
+
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
-\begin_inset Formula $V$
-\end_inset
-
- is the width of the smallest bin that contains exactly the 
-\begin_inset Formula $K$
-\end_inset
-
- neighbours of 
-\begin_inset Formula $\mathbf{x}$
+The 
+\series bold
+\color blue
+parameter uncertainty
+\series default
+\color inherit
+ is represented in the predictive distribution by 
+\series bold
+\color blue
+averaging over
+\series default
+\color inherit
+ 
+\begin_inset Formula $p(\mathbf{w}|y_{train},x_{train})$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Itemize
+Compute the predictive distribution by 
 \series bold
+simulation
+\series default
+.
+ Iterate:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Simulate a random parameter draw
+\color red
+ 
+\begin_inset Formula $\tilde{\mathbf{w}}$
+\end_inset
+
+
+\color inherit
+ from posterior 
+\begin_inset Formula $p(\mathbf{w}|y_{train},x_{train})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Simulate a 
+\begin_inset Formula $y_{test}$
+\end_inset
+
+ from 
+\begin_inset Formula $p(y_{test}|\mathbf{w=}$
+\end_inset
+
+
+\color red
+
+\begin_inset Formula $\tilde{\mathbf{w}}$
+\end_inset
+
+
 \color black
 
-\begin_inset VSpace bigskip
+\begin_inset Formula $,x_{test}$
 \end_inset
 
-
+).
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
-Histograms: fix 
-\begin_inset Formula $\Delta$
-\end_inset
-
- and count the number of observations in a bin
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $k$
-\end_inset
-
--nearest neighbours: fix the number of observations 
-\begin_inset Formula $K$
-\end_inset
-
- in a bin, and make sure that the bin width 
-\begin_inset Formula $V$
-\end_inset
-
- is large enough.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Fish length - kNN density estimates
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename FishkNNDensEst.png
-	lyxscale 30
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Mixture of normals density estimation
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\color black
-Two-component 
-\series bold
-\color blue
-mixture of normals
-\color black
-
-\begin_inset Formula 
-\[
-p(y)=\pi_{1}\cdot\phi(y\vert\mu_{1},\sigma_{1}^{2})+\pi_{2}\cdot\phi(y\vert\mu_{2},\sigma_{2}^{2})
-\]
-
-\end_inset
-
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Mixture of normals with 
-\begin_inset Formula $K$
-\end_inset
-
- components
-\begin_inset Formula 
-\[
-p(y)=\sum_{k=1}^{K}\pi_{k}\cdot\phi(y\vert\mu_{k},\sigma_{k}^{2})
-\]
-
-\end_inset
-
-
-\series bold
-\color black
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Maximum likelihood or Bayesian methods to estimate the model parameters:
- 
-\begin_inset Formula $\pi_{1},...,\pi_{K}$
-\end_inset
-
-, 
-\begin_inset Formula $\mu_{1},...,\mu_{K}$
-\end_inset
-
- and 
-\begin_inset Formula $\sigma_{1},...,\sigma_{K}$
-\end_inset
-
-.
-\series bold
-\color black
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-It is possible to use other distrbutions than the normal in the mixture.
- Example: mixture of Poissons for count data.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Fish length - Mixture of normals
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename FishMoN.png
-	lyxscale 30
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Three types of supervised models
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Generative models
-\series default
-\color inherit
-: models inputs and targets jointly:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $p(\mathbf{Y},\mathbf{X})$
-\end_inset
-
- when the target 
-\begin_inset Formula $Y$
-\end_inset
-
- is continuous
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $p(\mathcal{C}_{k},\mathbf{X})$
-\end_inset
-
- when the target is a class 
-\begin_inset Formula $\mathcal{C}_{k}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Discriminative models
-\series default
-\color inherit
-: Models 
-\begin_inset Formula $p(\mathcal{C}_{k}\vert\mathbf{x})$
-\end_inset
-
- directly.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Discriminant function models
-\series default
-\color inherit
-: uses a function 
-\begin_inset Formula $f(\mathbf{x})$
-\end_inset
-
- that maps any 
-\begin_inset Formula $\mathbf{x}$
-\end_inset
-
- to a class label 
-\begin_inset Formula $\mathcal{C}_{k}$
-\end_inset
-
-.
- No probabilities are involved.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Generative models can be used to generate synthetic data.
-\end_layout
-
-\begin_layout Itemize
-Discriminative models typically have fewer parameters than generative models.
-\end_layout
-
-\begin_layout Itemize
-Discriminative models tend to give better predictions, especially when the
- generative model for 
-\begin_inset Formula $\mathbf{x}$
-\end_inset
-
- is bad.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Generative models - Bayesian classification
-\series bold
-\size largest
-\color blue
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Bayesian classification
-\series default
-\color inherit
- among 
-\series bold
-
-\begin_inset Formula $K$
-\end_inset
-
-
-\series default
- classes
-\begin_inset Formula 
-\[
-\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\:p(\mathcal{C}_{k}|\mathbf{x})
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $\mathbf{x}=(x_{1},...,x_{n})$
-\end_inset
-
- is a feature vector.
-\end_layout
-
-\begin_layout Itemize
-By 
-\series bold
-Bayes' theorem
-\series default
-
-\begin_inset Formula 
-\[
-p(\mathcal{C}_{k}|\mathbf{x})=\frac{p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})}{p(\mathbf{x})}\propto p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Bayesian classification
-\begin_inset Formula 
-\[
-\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\:p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $p(\mathcal{C}_{k})$
-\end_inset
-
- can easily be estimated by the proportion of observations from class 
-\begin_inset Formula $k$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-But how do we compute 
-\begin_inset Formula $p(\mathbf{x}|\mathcal{C}_{k})$
-\end_inset
-
-?
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $k$
-\end_inset
-
--nearest neighbours
-\series bold
- 
-\series default
-classification
-\series bold
-\size largest
-\color blue
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-kNN
-\series default
- models the class-conditional distributions by
-\begin_inset Formula 
-\[
-p(\mathbf{x}\vert\mathcal{C}_{k})=\frac{K_{k}}{N_{k}\cdot V},
-\]
-
-\end_inset
-
-where 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $V$
-\end_inset
-
- is the volume of the smallest sphere centered on 
-\begin_inset Formula $\mathbf{x}$
-\end_inset
-
- that contains exactly 
-\begin_inset Formula $K$
-\end_inset
-
- neighbours.
- 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $K_{k}$
-\end_inset
-
- is number observations from class 
-\begin_inset Formula $k$
-\end_inset
-
- in that sphere.
- 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $N_{k}$
-\end_inset
-
- is the total number of observations in class 
-\begin_inset Formula $k$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-kNN model of 
-\begin_inset Formula $p(\mathbf{x})$
-\end_inset
-
- and 
-\begin_inset Formula $p(\mathcal{C}_{k})$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-p(\mathbf{x})=\frac{K}{N\cdot V}\qquad p(\mathcal{C}_{k})=\frac{N_{k}}{N}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-kNN classification probabilities:
-\begin_inset Formula 
-\[
-p(\mathcal{C}_{k}|\mathbf{x})=\frac{p(\mathbf{x}|\mathcal{C}_{k})p(\mathcal{C}_{k})}{p(\mathbf{x})}=\frac{K_{k}}{K}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Classification
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename LogRegkNNClassification.png
-	scale 27
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Generative models - naive Bayes
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Naive Bayes
-\series default
-\color inherit
-: 
-\series bold
-features 
-\series default
-are assumed 
-\series bold
-independent
-\series default
-
-\begin_inset Formula 
-\[
-p(\mathbf{x}|\mathcal{C}_{k})=\prod_{j=1}^{n}p(x_{j}|\mathcal{C}_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Naive Bayes solution
-\begin_inset Formula 
-\[
-\underset{k\in\{1,...,K\}}{\mathrm{argmax}}\left[\prod_{j=1}^{n}p(x_{j}|\mathcal{C}_{k})\right]p(\mathcal{C}_{k})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Example: 
-\begin_inset Formula $K=2$
-\end_inset
-
-.
- 
-\begin_inset Formula $\mathcal{C}_{1}=$
-\end_inset
-
-positive movie review and 
-\begin_inset Formula $\mathcal{C}_{2}=$
-\end_inset
-
-negative movie review
-\end_layout
-
-\begin_layout Itemize
-Binary word features: 
-\begin_inset Formula $x_{j}=\text{has('fantastic')}$
-\end_inset
-
-
-\size footnotesize
-
-\begin_inset Formula 
-\[
-\hat{p}\left(\textnormal{has('fantastic')}|\text{positive}\right)=\frac{\text{\# positive reviews with the word 'fantastic'}}{\text{\# of positive reviews}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-For 
-\series bold
-continuous
-\series default
- 
-\series bold
-features
-\series default
- we can use a normal distribution for each class: 
-\begin_inset Formula 
-\[
-x_{j}\vert\mathcal{C}_{k}\sim N(\mu_{jk},\sigma_{jk}^{2})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Discriminative models
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Direct modeling of 
-\begin_inset Formula $p(\mathcal{C}_{k}|\mathbf{x})$
-\end_inset
-
-.
- No need to model 
-\begin_inset Formula $p(\mathbf{x}|\mathcal{C}_{k})$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Logistic regression 
-\color inherit
-
-\begin_inset Formula 
-\[
-Pr(\text{positive review}\vert\mathbf{x})=\frac{\exp(w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p})}{1+\exp(w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p})}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-When the response is continuous: direct models of 
-\begin_inset Formula $p(Y\vert\mathbf{x})$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Linear regression
-\series default
-\color inherit
-: 
-\begin_inset Formula 
-\[
-Y=w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p}+\varepsilon,\;\;\varepsilon\overset{indep}{\sim}N(0,\sigma^{2})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Poisson regression
-\series default
-\color inherit
- for counts 
-\begin_inset Formula $(Y\in\{0,1,2,...\}$
-\end_inset
-
-):
-\begin_inset Formula 
-\[
-Y\vert\mathbf{x}\overset{iid}{\sim}Poisson\left[\lambda=\exp\left(w_{0}+w_{1}\cdot x_{1}+...+w_{p}x_{p}\right)\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-The Bias-Variance trade-off
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Logistic regression has low variance, but may have large bias if truth is
- non-linear.
-\end_layout
-
-\begin_layout Itemize
-kNN can have large variance, but low bias since it can adapt to non-linearities.
-\end_layout
-
-\begin_layout Itemize
-Bias variance trade-off
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename BiasVsVariance.pdf
-	scale 85
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Classification
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename LogRegkNNClassification.png
-	scale 27
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Classification - Bootstrap sample 1
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename BootLogRegkNNClassification1.png
-	scale 27
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Classification - Bootstrap sample 2
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename BootLogRegkNNClassification2.png
-	scale 27
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Classification - Bootstrap sample 3
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename BootLogRegkNNClassification3.png
-	scale 27
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Classification - Bootstrap sample 4
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename BootLogRegkNNClassification4.png
-	scale 27
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Classification - Bootstrap sample 5
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename BootLogRegkNNClassification5.png
-	scale 27
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Overfitting
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Many problems in machine learning need 
-\series bold
-\color blue
-flexible models
-\series default
-\color inherit
-:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Flexible mean (non-linear)
-\end_layout
-
-\begin_layout Itemize
-Flexible decision boundary in classification
-\end_layout
-
-\begin_layout Itemize
-Flexible distributions (heavy tails for outliers)
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-But allowing for too much flexibility leads to 
-\series bold
-\color blue
-overfitting
-\color inherit
-.
-\series default
-
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Overfitting leads to poor 
-\series bold
-\color blue
-generalization performance
-\series default
-\color inherit
- on 
-\series bold
-new
-\series default
- data.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Regularization
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-The solution to the flexible-without-overfitting dilemma is 
-\series bold
-\color blue
-regularization
-\series default
-\color inherit
-.
-\end_layout
-
-\begin_layout Itemize
-Example: polynomial regression
-\begin_inset Formula 
-\[
-y=w_{0}+w_{1}x+w_{2}x^{2}+...+w_{p}x^{p}+\varepsilon\qquad\varepsilon\overset{iid}{\sim}N(0,\sigma^{2})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Two sides of the same (regularization) coin:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Complexity penalty
-\series default
-\color inherit
-
-\begin_inset Formula 
-\[
-\log p(y_{1},...,y_{n}\vert\mathbf{w})-\lambda\sum_{j=1}^{p}w_{j}^{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Bayesian prior
-\series default
-\color inherit
-
-\begin_inset Formula 
-\[
-w_{j}\overset{iid}{\sim}N\left(0,\lambda^{-1}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Regularization or 
-\series bold
-\color blue
-Shrinkage
-\series default
- 
-\series bold
-parameter
-\series default
-\color inherit
- 
-\begin_inset Formula $\lambda$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Overfitting - Polynomials
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename overfittingPoly.png
-	lyxscale 20
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Overfitting - smoothness prior
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename overfittingRidge.png
-	lyxscale 20
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Prediction and Model evaluation
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-The ultimate test of a model: does it 
-\series bold
-predict new data 
-\series default
-well?
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Split the data into 
-\series bold
-\color blue
-Training
-\series default
-\color inherit
- and 
-\series bold
-\color blue
-Test
-\series default
-\color inherit
- sets.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Sometimes split into Training, Validation and Testing.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-The test set is sometime called 
-\series bold
-\color blue
-hold-out sample
-\series default
-\color inherit
-.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-\begin_inset Formula $K$
-\end_inset
-
--fold
-\series default
- 
-\series bold
-cross-validation
-\series default
-\color inherit
-:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Partition the data into 
-\begin_inset Formula $K$
-\end_inset
-
- sets (folds).
-\end_layout
-
-\begin_layout Itemize
-Use 
-\begin_inset Formula $K-1$
-\end_inset
-
- folds for training and then predict the remaining fold.
-\end_layout
-
-\begin_layout Itemize
-Repeat 
-\begin_inset Formula $K$
-\end_inset
-
- times, each time with a new fold as test.
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Evaluating a regression model
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Point predictions based on features 
-\begin_inset Formula $\mathbf{x}_{i}$
-\end_inset
-
-: 
-\begin_inset Formula $\hat{y}_{i}=f(\mathbf{x}_{i})$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Mean Squared Prediction Errors
-\series default
-\color inherit
- (MSPE)
-\begin_inset Formula 
-\[
-MSPE=\frac{1}{n_{test}}\sum_{i\in Test}\left(y_{i}-f\left(\mathbf{x}_{i}\right)\right)^{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $RMSPE=\sqrt{MSPE}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Log Predictive Score
-\series default
- (LPS)
-\begin_inset Formula 
-\[
-LPS=\frac{1}{n_{test}}\sum_{i\in Test}\log p(y_{i}\vert\mathbf{x}_{i},\hat{\mathbf{w}})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Om 
-\begin_inset Formula $p(y_{i}\vert\mathbf{x}_{i},\hat{\mathbf{w}})$
-\end_inset
-
- is Gaussian, then 
-\begin_inset Formula $LPS\propto-MSPE$
-\end_inset
-
- .
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Evaluating a classifier: confusion matrix
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Confusion
-\series default
-\color inherit
- matrix:
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Truth
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Decision
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{gray97}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-tp
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{gray97}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-fp
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{gray97}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-fn
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{gray97}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-tn
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\size footnotesize
-tp = true positive, fp = false positive, fn = false negative, tn = true
- negative.
-\end_layout
-
-\begin_layout Itemize
-Example: 
-\series bold
-spam/ham
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Truth
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Spam
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Ham
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Decision
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Spam
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{gray97}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-tp
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{gray97}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-fp
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Ham
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{gray97}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-fn
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{gray97}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-tn
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Evaluating a classifier: Accuracy
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Accuracy
-\series default
-\color inherit
- is the proportion of correctly classified items
-\begin_inset Formula 
-\[
-\text{Accuracy}=\frac{tp+tn}{tp+tn+fn+fp}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Truth
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Decision
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\series bold
-\size default
-\color red
-tp
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-fp
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-fn
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\series bold
-\size default
-\color red
-tn
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Evaluating a classifier: Precision
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Precision
-\series default
-\color inherit
- is the proportion of truly positive items among those signaled as positive:
- 
-\begin_inset Formula 
-\[
-\text{Precision = }\frac{tp}{tp+fp}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Truth
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Decision
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\series bold
-\size default
-\color red
-tp
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-fp
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-fn
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-tn
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-High precision: when you say positive we can trust you to be right.
- People pointed out as fraudulent are almost always frauds.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Evaluating a classifier: Recall
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Recall
-\series default
-\color inherit
- is the proportion of signaled positive items among those that are truly
- positive: 
-\begin_inset Formula 
-\[
-\text{Recall =}\frac{tp}{tp+fn}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Truth
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Decision
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\series bold
-\size default
-\color red
-tp
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-fp
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-fn
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-tn
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-High recall: you will find the positive items.
- Don't be fraudulent, you will be caught.
-\end_layout
-
-\begin_layout Itemize
-Recall is also called the 
-\series bold
-True Positive Rate
-\series default
- (
-\series bold
-TPR
-\series default
-)
-\end_layout
-
-\begin_layout Itemize
-There is a trade-off between Precision and Recall.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Evaluating a classifier: False Positive Rate
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-False Positive Rate (FPR) is the proportion of signaled positive items among
- those that are truly negative:
-\begin_inset Formula 
-\[
-\text{FPR}=\frac{fp}{fp+tn}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Truth
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Decision
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Positive
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-tp
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\series bold
-\size default
-\color red
-fp
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Negative
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-fn
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\size scriptsize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-cellcolor{robinsegg}
-\end_layout
-
-\end_inset
-
-
-\family default
-\size default
-tn
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Low FPR: you will very rarely signal a positive for negative items.
- People will not be falsely accused of fraud.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Evaluating a classifier: ROC curve
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Precision and recall depends on the 
-\series bold
-\color blue
-decision threshold.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $Pr(\mbox{Spam}\vert\text{text in an email})=0.9$
-\end_inset
-
-.
- Do we send it to the spam-box? 
-\series bold
-\color blue
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Is 
-\begin_inset Formula $Pr(\mbox{Spam}\vert\text{text in an email})>0.5$
-\end_inset
-
- a good threshold?
-\series bold
-\color blue
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Optimal decisions
-\series default
-\color inherit
- depend on the consequences.
-\series bold
-\color blue
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-ROC-curve
-\series default
-\color inherit
-: Receiver Operating Characteristic.
-\series bold
-\color blue
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-ROC: Plots the true positive rate (TPR) against the false positive rate
- (FPR) at various thresholds.
-\series bold
-\color blue
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-AUC
-\series default
-\color inherit
- = Area Under Curve.
- Area under the ROC curve.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Evaluating a classifier: ROC curve
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename RoccurvesWiki.png
-	lyxscale 30
-	scale 200
-
-\end_inset
-
-
-\end_layout
-
 \end_deeper
 \begin_layout Separator
 
