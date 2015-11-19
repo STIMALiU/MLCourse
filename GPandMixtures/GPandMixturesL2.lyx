@@ -1,0 +1,1218 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\setcounter{MaxMatrixCols}{10}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\definecolor{RawSienna}{cmyk}{0,0.87,0.82,0.31}
+\definecolor{gray97}{cmyk}{0,0,0,0.03}
+\definecolor{robinsegg}{cmyk}{0.18,0.04,0,0.07}
+\definecolor{cola}{cmyk}{0,0.315,0.35,0.155}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usecolortheme[named=RawSienna]{structure}
+%\usecolortheme[RGB={205,0,0}]{structure}
+\setbeamertemplate{navigation symbols}{}
+\useoutertheme{infolines}
+\usetheme{default}
+\setbeamertemplate{blocks}[shadow=true]
+%\setbeamerfont{structure}{shape=\itshape}
+\usefonttheme{structuresmallcapsserif}
+\setbeamertemplate{background canvas}{
+ % \ifnum \thepage>0 \relax % we are on the first page
+%\includegraphics[width=\paperwidth,height=\paperheight]{/home/mv/Dropbox/Foton/IconsWallpaper/greyribbonLighter.jpg}
+ % \else
+ 	% No background for page 2 and onwards
+ % \fi
+}
+\end_preamble
+\options xcolor=svgnames
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+732A52
+\end_layout
+
+\end_inset
+
+Introduction to Machine Learning
+\begin_inset Newline newline
+\end_inset
+
+Topic 6: Gaussian processes and mixture models
+\begin_inset Newline newline
+\end_inset
+
+Lecture 6b
+\end_layout
+
+\begin_layout Author
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Mattias Villani
+\end_layout
+
+\end_inset
+
+Mattias Villani
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+STIMA, LiU
+\end_layout
+
+\end_inset
+
+Division of Statistics and Machine Learning
+\begin_inset Newline newline
+\end_inset
+
+Department of Computer and Information Science
+\begin_inset Newline newline
+\end_inset
+
+Linköping University 
+\end_layout
+
+\begin_layout Date
+\begin_inset Graphics
+	filename ../../ProbStatUProg/Lectures/LiU_secondary_1_black.png
+	lyxscale 7
+	scale 15
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Topic overview
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+K-means clustering
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Mixture models
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+EM algorithm
+\series default
+\color inherit
+ for mixtures.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+k-Means clustering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Data in 
+\begin_inset Formula $\mathbb{R}^{D}$
+\end_inset
+
+: 
+\begin_inset Formula $\mathbf{x}_{1},...,\mathbf{x}_{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Aim: 
+\series bold
+\color blue
+partition
+\color inherit
+ the data into 
+\begin_inset Formula $K$
+\end_inset
+
+ 
+\color blue
+clusters
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Each observation 
+\begin_inset Formula $\mathbf{x}_{n}$
+\end_inset
+
+ is represented by a 
+\series bold
+\color blue
+centroid
+\series default
+\color inherit
+ 
+\begin_inset Formula $\mu_{k}\in\mathbb{R}^{D}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $r_{nk}=1$
+\end_inset
+
+ if 
+\begin_inset Formula $\mathbf{x}_{n}$
+\end_inset
+
+ belongs to 
+\begin_inset Formula $\mu_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+k-means clustering
+\series default
+\color inherit
+ minimizes
+\begin_inset Formula 
+\[
+\sum_{n=1}^{N}\sum_{k=1}^{K}r_{nk}\left\Vert \mathbf{x}_{n}-\mu_{k}\right\Vert ^{2}
+\]
+
+\end_inset
+
+with respect to the 
+\begin_inset Formula $r_{nk}$
+\end_inset
+
+ and the 
+\begin_inset Formula $\mu_{1},...,\mu_{K}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Iterative 
+\series bold
+algorithm
+\series default
+: initialize 
+\begin_inset Formula $\mu_{1},...,\mu_{K}$
+\end_inset
+
+ , then:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Allocate (
+\begin_inset Formula $r_{nk}=1$
+\end_inset
+
+) each observations to nearest centroid
+\end_layout
+
+\begin_layout Itemize
+Recompute centroids as means of allocated observations.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+k-Means clustering of old faithful data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/kMeansOldFaithful.jpeg
+	lyxscale 10
+	scale 6
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Image compression by k-means
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/kMeansImageCompress.jpeg
+	lyxscale 10
+	scale 8
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Mixtures of Gaussians 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\mathcal{N}(x|\mu,\sigma^{2})$
+\end_inset
+
+ denotes the 
+\series bold
+PDF
+\series default
+ of a 
+\series bold
+normal
+\series default
+ variable 
+\begin_inset Formula $X\sim N(\mu,\sigma^{2})$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Two-component mixture of normals
+\series default
+\color inherit
+ [MN(
+\begin_inset Formula $2$
+\end_inset
+
+)]
+\begin_inset Formula 
+\[
+p(x)=\pi\cdot\mathcal{N}(x|\mu_{1},\sigma_{1}^{2})+(1-\pi)\cdot\mathcal{N}(x|\mu_{2},\sigma_{2}^{2})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Simulate
+\series default
+\color inherit
+ from a MN(
+\begin_inset Formula $2$
+\end_inset
+
+):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Simulate an indicator 
+\begin_inset Formula $I\in\{1,2\}$
+\end_inset
+
+, where 
+\begin_inset Formula $I\sim Bern(\pi)$
+\end_inset
+
+, and 
+\begin_inset Formula $\pi=\mathrm{Pr}(I=1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $I=1$
+\end_inset
+
+, simulate 
+\begin_inset Formula $x$
+\end_inset
+
+ from 
+\begin_inset Formula $N(\mu_{1},\sigma_{1}^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $I=2$
+\end_inset
+
+, simulate 
+\begin_inset Formula $x$
+\end_inset
+
+ from 
+\begin_inset Formula $N(\mu_{2},\sigma_{2}^{2}).$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Illustration of mixture distributions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/MixtureOfNormals.eps
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Mixture distributions, cont.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $K$
+\end_inset
+
+-component mixture of normals
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+p(x)=\sum_{k=1}^{K}\pi_{k}\mathcal{N}(x\vert\mu_{k},\sigma_{k}^{2}),\quad\sum\nolimits _{k=1}^{K}\pi_{k}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color black
+\begin_inset Formula $K$
+\end_inset
+
+-component mixture of
+\color blue
+ multivariate 
+\color black
+normals
+\color blue
+ 
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+p(\mathbf{x})=\sum_{k=1}^{K}\pi_{k}\mathcal{N}(\mathbf{x}\vert\mu_{k},\Sigma_{k}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+General mixtures
+\series default
+\color inherit
+ (
+\begin_inset Formula $f(x\vert\theta_{k})$
+\end_inset
+
+ can be any distribution) 
+\begin_inset Formula 
+\[
+p(x)=\sum_{k=1}^{K}\pi_{k}f(x\vert\theta_{k}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: 
+\series bold
+count
+\series default
+ 
+\series bold
+data
+\series default
+.
+ Poisson is elegant, but restrictive (
+\begin_inset Formula $E(X)=Var(X)$
+\end_inset
+
+).
+ A 
+\series bold
+mixture of Poissons
+\series default
+ is more flexible: 
+\begin_inset Formula 
+\[
+p(x)=\sum_{k=1}^{K}\pi_{k}\cdot\mathrm{Poisson}(x\vert\theta_{k}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Mixture distributions, cont.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Not easy to estimate directly - the likelihood is a product of sums
+\begin_inset Formula 
+\[
+p(x_{1},...,x_{n})=\prod_{i=1}^{n}\sum_{k=1}^{K}\pi_{k}\mathcal{N}(x\vert\mu_{k},\sigma_{k}^{2}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Assume
+\series default
+ that we knew which of the component density each observation came from:
+ 
+\begin_inset Formula 
+\begin{align*}
+I_{i} & =\left\{ \begin{array}{c}
+1\text{ if }x_{i}\text{ came from Density 1}\\
+2\text{ if }x_{i}\text{ came from Density 2}\\
+\vdots\\
+K\text{ if }x_{i}\text{ came from Density K}
+\end{array}\right..
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If we know 
+\begin_inset Formula $I_{1},...,I_{n}$
+\end_inset
+
+: just estimate 
+\begin_inset Formula $\pi_{1},...,\pi_{K}$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{1},...,\mu_{K},\sigma_{1}^{2},...,\sigma_{K}^{2}$
+\end_inset
+
+ by separating the sample according to the 
+\begin_inset Formula $I$
+\end_inset
+
+'s.
+\end_layout
+
+\begin_layout Itemize
+But we do 
+\series bold
+not
+\series default
+ know 
+\begin_inset Formula $I_{1},...,I_{n}$
+\end_inset
+
+! [
+\series bold
+Gibbs sampling
+\series default
+; Bayesian Learning].
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+EM-algorithm 
+\series default
+\color inherit
+is 'poor man's Gibbs sampling'.
+ Maximum likelihood estimators.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+EM-algorithm for mixture of Gaussians 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Define 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ to be a 
+\series bold
+\color blue
+1-of-
+\begin_inset Formula $K$
+\end_inset
+
+ variable
+\series default
+\color inherit
+ that indicates which mixture component observation 
+\begin_inset Formula $i$
+\end_inset
+
+ belongs to.
+ 
+\end_layout
+
+\begin_layout Itemize
+Observation 
+\begin_inset Formula $i$
+\end_inset
+
+ belongs to component 
+\begin_inset Formula $k$
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ the 
+\begin_inset Formula $k$
+\end_inset
+
+th element of 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ is unity and the other elements are all zero.
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\mathbf{Z}$
+\end_inset
+
+ be the 
+\begin_inset Formula $N\times K$
+\end_inset
+
+ 
+\series bold
+\color blue
+component membership matrix
+\series default
+\color inherit
+ where the 
+\begin_inset Formula $i$
+\end_inset
+
+th row is 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+.
+ Latent (unobserved variables).
+\end_layout
+
+\begin_layout Itemize
+Complete data likelihood: 
+\begin_inset Formula $p(x_{1},...,x_{N},\mathbf{Z}\vert\theta)$
+\end_inset
+
+.
+ But 
+\begin_inset Formula $\mathbf{Z}$
+\end_inset
+
+ is not observed.
+ 
+\series bold
+:-(
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Expectations-Maximization (EM) algorithm.
+ 
+\color black
+Maximum likelihood
+\series default
+ for models with latent variables.
+\end_layout
+
+\begin_layout Itemize
+Iterative method.
+ Parameters are updated and the likelihood increases at every iteration.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+EM-algorithm for mixture of Gaussians 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Initialize the 
+\begin_inset Formula $\pi$
+\end_inset
+
+'s, 
+\begin_inset Formula $\mu$
+\end_inset
+
+'s and 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+s.
+ Compute the log likelihood.
+\end_layout
+
+\begin_layout Enumerate
+(
+\series bold
+\color blue
+E-step
+\series default
+\color inherit
+) Given the component parameters (the 
+\begin_inset Formula $\pi$
+\end_inset
+
+'s, 
+\begin_inset Formula $\mu$
+\end_inset
+
+'s and 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+'s) compute the expected values for the latents 
+\begin_inset Formula $z_{nk}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma\left(z_{nk}\right)=\frac{\pi_{k}\mathcal{N}\left(x_{n}\vert\mu_{k},\sigma_{k}^{2}\right)}{\sum_{j=1}^{K}\pi_{j}\mathcal{N}\left(x_{n}\vert\mu_{j},\sigma_{j}^{2}\right)}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $N_{k}=\sum_{n=1}^{N}\gamma\left(z_{nk}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(
+\series bold
+\color blue
+M-step
+\series default
+\color inherit
+) Given the 
+\begin_inset Formula $\gamma(z_{nk})$
+\end_inset
+
+, maximize the expected (with respect to 
+\begin_inset Formula $\mathbf{Z}$
+\end_inset
+
+) log-likelihood for the component parameters 
+\begin_inset Formula 
+\[
+\mu_{k}^{new}=\frac{1}{N_{k}}\sum_{n=1}^{N}\gamma\left(z_{nk}\right)x_{n}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sigma_{k}^{2}=\frac{1}{N_{k}}\sum_{n=1}^{N}\gamma\left(z_{nk}\right)\left(x_{n}-\mu_{k}^{new}\right)^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\pi_{k}^{new}=\frac{N_{k}}{N}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+EM-algorithm for mixture of Gaussians 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[4.]
+\end_layout
+
+\end_inset
+
+Evaluate the log-likelihood at the new parameter values
+\begin_inset Formula 
+\[
+\log p\left(x_{1},...,x_{N}\vert\mu,\sigma^{2},\pi\right)=\log\left\{ \sum_{n=1}^{N}\sum_{k=1}^{K}\pi_{k}\mathcal{N}(x_{n}\vert\mu_{k},\sigma_{k}^{2})\right\} 
+\]
+
+\end_inset
+
+and check for convergence of the log-likelihood.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Mixture of bivariate Gaussians for old Faithful
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/EMMoNOldFaithful.jpeg
+	lyxscale 10
+	scale 8
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+EM-algorithm for mixture of Gaussians 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+EM: the log-likelihood is 
+\series bold
+guaranteed to increase
+\series default
+ at every iteration.
+\end_layout
+
+\begin_layout Itemize
+EM is typically 
+\series bold
+slow
+\series default
+.
+ Switch to Newton-Raphson when you come closer to the maximum.
+\end_layout
+
+\begin_layout Itemize
+EM solution often depends on the 
+\series bold
+initial values
+\series default
+.
+ Restart EM with many different initial values and pick the best solution.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Label-switching
+\series default
+\color inherit
+ for mixtures.
+ There are actually 
+\begin_inset Formula $K!$
+\end_inset
+
+ maxima.
+\end_layout
+
+\begin_layout Itemize
+EM tends to find a finite maximum even though the 
+\series bold
+likelihood is actually unbounded
+\series default
+.
+ Singularities.
+ Likelihood becomes arbitraly large if 
+\begin_inset Formula $k$
+\end_inset
+
+th component is 
+\begin_inset Formula $\mathcal{N}(x_{j},\sigma_{k}^{2})$
+\end_inset
+
+ with 
+\begin_inset Formula $\sigma_{k}^{2}\rightarrow0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\end_body
+\end_document
