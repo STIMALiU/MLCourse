@@ -443,6 +443,128 @@ Multivariate normal
 status open
 
 \begin_layout Plain Layout
+The multivariate normal distribution, cont.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\mathbf{x}=\left(\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathbf{x}_{1}$
+\end_inset
+
+ is 
+\begin_inset Formula $p_{1}\times1$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{x}_{2}$
+\end_inset
+
+ is 
+\begin_inset Formula $p_{2}\times1$
+\end_inset
+
+ (
+\begin_inset Formula $p_{1}+p_{2}=p$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+Partition 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ accordingly as 
+\begin_inset Formula 
+\[
+\mu=\left(\begin{array}{c}
+\mu_{1}\\
+\mu_{2}
+\end{array}\right)\text{ and }\Sigma=\left(\begin{array}{cc}
+\Sigma_{11} & \Sigma_{12}\\
+\Sigma_{21} & \Sigma_{22}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Marginals are normal
+\series default
+.
+ Let 
+\begin_inset Formula $\mathbf{x}\sim N(\mu,\Sigma)$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\mathbf{x}_{1}\sim N(\mu_{1},\Sigma_{11})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Conditionals are normal
+\series default
+.
+ Let 
+\begin_inset Formula $\mathbf{x}\sim N(\mu,\Sigma)$
+\end_inset
+
+, then
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbf{x}_{1}|\mathbf{x}_{2}=\mathbf{x}_{2}^{*}\sim N\left[\mu_{1}+\Sigma_{12}\Sigma_{22}^{-1}(x_{2}^{*}-\mu_{2}),\;\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 Flexible nonlinear regression
 \end_layout
 
