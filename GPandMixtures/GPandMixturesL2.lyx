@@ -736,7 +736,7 @@ Mixture distributions, cont.
 Not easy to estimate directly - the likelihood is a product of sums
 \begin_inset Formula 
 \[
-p(x_{1},...,x_{n})=\prod_{i=1}^{n}\sum_{k=1}^{K}\pi_{k}\mathcal{N}(x\vert\mu_{k},\sigma_{k}^{2}).
+p(x_{1},...,x_{N}\vert\mu,\sigma^{2},\pi)=\prod_{n=1}^{N}\sum_{k=1}^{K}\pi_{k}\mathcal{N}(x_{n}\vert\mu_{k},\sigma_{k}^{2}).
 \]
 
 \end_inset
@@ -768,7 +768,7 @@ K\text{ if }x_{i}\text{ came from Density K}
 
 \begin_layout Itemize
 If we know 
-\begin_inset Formula $I_{1},...,I_{n}$
+\begin_inset Formula $I_{1},...,I_{N}$
 \end_inset
 
 : just estimate 
@@ -792,7 +792,7 @@ But we do
 not
 \series default
  know 
-\begin_inset Formula $I_{1},...,I_{n}$
+\begin_inset Formula $I_{1},...,I_{N}$
 \end_inset
 
 ! [
@@ -1036,7 +1036,7 @@ M-step
 
 \begin_inset Formula 
 \[
-\sigma_{k}^{2}=\frac{1}{N_{k}}\sum_{n=1}^{N}\gamma\left(z_{nk}\right)\left(x_{n}-\mu_{k}^{new}\right)^{2}
+\sigma_{k}^{2,new}=\frac{1}{N_{k}}\sum_{n=1}^{N}\gamma\left(z_{nk}\right)\left(x_{n}-\mu_{k}^{new}\right)^{2}
 \]
 
 \end_inset
@@ -1085,7 +1085,7 @@ status open
 Evaluate the log-likelihood at the new parameter values
 \begin_inset Formula 
 \[
-\log p\left(x_{1},...,x_{N}\vert\mu,\sigma^{2},\pi\right)=\log\left\{ \sum_{n=1}^{N}\sum_{k=1}^{K}\pi_{k}\mathcal{N}(x_{n}\vert\mu_{k},\sigma_{k}^{2})\right\} 
+\log p\left(x_{1},...,x_{N}\vert\mu,\sigma^{2},\pi\right)=\sum_{n=1}^{N}\log\left\{ \sum_{k=1}^{K}\pi_{k}\mathcal{N}(x_{n}\vert\mu_{k},\sigma_{k}^{2})\right\} 
 \]
 
 \end_inset
@@ -1148,7 +1148,7 @@ EM: the log-likelihood is
 \series bold
 guaranteed to increase
 \series default
- at every iteration.
+ (or, at least not decrease) at every iteration.
 \end_layout
 
 \begin_layout Itemize
