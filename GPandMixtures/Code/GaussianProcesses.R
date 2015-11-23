@@ -12,7 +12,7 @@ SquaredExpKernel <- function(x1,x2,sigmaF=1,l=3){
   n2 <- length(x2)
   K <- matrix(NA,n1,n2)
   for (i in 1:n2){
-    K[,i] <- sigmaF*exp(-0.5*( (x1-x2[i])/l)^2 )
+    K[,i] <- sigmaF^2*exp(-0.5*( (x1-x2[i])/l)^2 )
   }
   return(K)
 }
