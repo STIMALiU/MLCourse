@@ -496,7 +496,7 @@ height "1pt"
 This exercise is concerned with the Gaussian Process Regression:
 \begin_inset Formula 
 \[
-y=f(x)+\varepsilon\quad\varepsilon\sim N(0,\sigma_{\varepsilon}^{2})
+y=f(x)+\varepsilon\quad\varepsilon\sim N(0,\sigma_{n}^{2})
 \]
 
 \end_inset
@@ -596,7 +596,7 @@ sigmaNoise
 \family default
 \color inherit
  (
-\begin_inset Formula $\sigma_{\varepsilon}$
+\begin_inset Formula $\sigma_{n}$
 \end_inset
 
 ).
@@ -631,7 +631,7 @@ Now let the prior hyperparameters be
 
 .
  Assume that the noise standard deviation is known to be 
-\begin_inset Formula $\sigma_{\varepsilon}=0.1$
+\begin_inset Formula $\sigma_{n}=0.1$
 \end_inset
 
 .
@@ -906,7 +906,18 @@ status open
 
 \end_inset
 
-Try out your brand new code on the 
+Congratulations, you have created your own Gaussian process regression code!
+ And you know 
+\emph on
+all
+\emph default
+ the little details in it.
+ Sweet!
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Try out your brand new code from the previous problem on the 
 \family sans
 \color black
 JapanTemp.dat
@@ -926,40 +937,26 @@ temp
 \color inherit
  as response variable.
  The data set contains a year of daily temperatures for some place in Japan.
- Play around with 
-\begin_inset Formula $\sigma_{\varepsilon}$
+ Document the effect on the posterior from changing 
+\begin_inset Formula $\sigma_{n}$
 \end_inset
 
- and the prior hyperparameters to see their effects.
+ and the prior hyperparameters.
  
 \end_layout
 
-\begin_layout Enumerate
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[(g)]
-\end_layout
-
-\end_inset
-
-Congratulations, you have created your own Gaussian process regression code!
- And you know 
-\emph on
-all
-\emph default
- the little details in it.
- Sweet!
-\end_layout
-
-\end_deeper
 \begin_layout Standard
 \begin_inset VSpace bigskip
 \end_inset
 
-Good luck! Hopefully things will go smoothly (pun intended).
+Good luck! Hopefully things will go smoothly (yes, pun intended).
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+- Mattias
 \end_layout
 
 \end_body
