@@ -1,0 +1,1772 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\setcounter{MaxMatrixCols}{10}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\definecolor{RawSienna}{cmyk}{0,0.87,0.82,0.31}
+\definecolor{gray97}{cmyk}{0,0,0,0.03}
+\definecolor{robinsegg}{cmyk}{0.18,0.04,0,0.07}
+\definecolor{cola}{cmyk}{0,0.315,0.35,0.155}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usecolortheme[named=RawSienna]{structure}
+%\usecolortheme[RGB={205,0,0}]{structure}
+\setbeamertemplate{navigation symbols}{}
+\useoutertheme{infolines}
+\usetheme{default}
+\setbeamertemplate{blocks}[shadow=true]
+%\setbeamerfont{structure}{shape=\itshape}
+\usefonttheme{structuresmallcapsserif}
+\setbeamertemplate{background canvas}{
+ % \ifnum \thepage>0 \relax % we are on the first page
+%\includegraphics[width=\paperwidth,height=\paperheight]{/home/mv/Dropbox/Foton/IconsWallpaper/greyribbonLighter.jpg}
+ % \else
+ 	% No background for page 2 and onwards
+ % \fi
+}
+\end_preamble
+\options xcolor=svgnames
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+732A52
+\end_layout
+
+\end_inset
+
+Introduction to Machine Learning
+\begin_inset Newline newline
+\end_inset
+
+Topic 9: Ensemble methods and high-dimensional problems
+\begin_inset Newline newline
+\end_inset
+
+Lecture 9a - High-dimensional problems
+\end_layout
+
+\begin_layout Author
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Mattias Villani
+\end_layout
+
+\end_inset
+
+Mattias Villani
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+STIMA, LiU
+\end_layout
+
+\end_inset
+
+Division of Statistics and Machine Learning
+\begin_inset Newline newline
+\end_inset
+
+Department of Computer and Information Science
+\begin_inset Newline newline
+\end_inset
+
+Linköping University
+\end_layout
+
+\begin_layout Date
+\begin_inset Graphics
+	filename ../../ProbStatUProg/Lectures/LiU_secondary_1_black.png
+	lyxscale 7
+	scale 15
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Topic overview
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Wide data: 
+\begin_inset Formula $N\ll p$
+\end_inset
+
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+High-dimensional classification
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+High-dimensional regression
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Wide data 
+\begin_inset Formula $N\ll p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Wide data 
+\series default
+\color inherit
+
+\begin_inset Formula $N\ll p$
+\end_inset
+
+.
+ Many variables, few data points.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Genomics
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Text
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Tall data
+\series default
+\color inherit
+: 
+\begin_inset Formula $p\ll N$
+\end_inset
+
+.
+ Few variables, many data points.
+\series bold
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tall and Wide.
+ Supermarket scanners.
+ Many purchases, many products.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Genomics - microarrays
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/DNAMicroArrayData.pdf
+	scale 42
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Text - document classification
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\size tiny
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="7">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset Formula $\text{Document}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+has('ball')
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+has('EU')
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+has('political_arena')
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+wordlen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+Lex.
+ Div.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+Topic
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+Article1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+Yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+4.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+5.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+Sports
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+Article2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+6.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+13.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+Sports
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+ArticleN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+Yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+7.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+11.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size tiny
+News
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The trouble with wide data 
+\begin_inset Formula $N\ll p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Linear regression
+\series default
+ with 
+\begin_inset Formula $p$
+\end_inset
+
+ covariates
+\begin_inset Formula 
+\[
+\underset{N\times1}{\mathbf{y}}=\underset{N\times p}{\mathbf{X}}\underset{p\times1}{\beta}+\underset{N\times1}{\varepsilon}
+\]
+
+\end_inset
+
+´ 
+\end_layout
+
+\begin_layout Itemize
+Least squares/
+\series bold
+Maximum likelihood
+\series default
+: 
+\begin_inset Formula $\hat{\beta}=\left(\mathbf{X}^{\prime}\mathbf{X}\right)^{-1}\mathbf{X}^{\prime}\mathbf{y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Problem: 
+\begin_inset Formula $\mathbf{X}^{\prime}\mathbf{X}$
+\end_inset
+
+ is 
+\begin_inset Formula $p\times p$
+\end_inset
+
+ but of rank 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ 
+\series bold
+Not invertible
+\series default
+ when 
+\begin_inset Formula $N<p$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Too many parameters to estimate from few data points.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Solutions
+\series default
+: regularization:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Dimensionality reduction
+\series default
+\color inherit
+.
+ Principal components regression.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Shrinkage
+\series default
+\color inherit
+.
+ 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+-penalty (Ridge) or 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+-penalty (Lasso)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Variable selection
+\series default
+\color inherit
+.
+ Forward selection.
+ Bayesian.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Regression L2-shrinkage when 
+\begin_inset Formula $N\ll p$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename Graphics/FIG18.1.pdf
+	lyxscale 30
+	scale 85
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Diagonal covariance LDA for 
+\begin_inset Formula $N\ll p$
+\end_inset
+
+ problems
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+LDA requires the estimation of class conditional distributions 
+\begin_inset Formula $N\left(\mu_{1},\Sigma\right)$
+\end_inset
+
+,...,
+\begin_inset Formula $N\left(\mu_{2},\Sigma\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+LDA makes the simplifying assumption of having the 
+\series bold
+same covariance matrix
+\series default
+ 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ in each class ...
+\end_layout
+
+\begin_layout Itemize
+...
+ but 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ is 
+\begin_inset Formula $p\times p$
+\end_inset
+
+ and symmetric.
+ 
+\begin_inset Formula $p(p+1)/2$
+\end_inset
+
+ elements.
+ Impossible if when 
+\begin_inset Formula $N\ll p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Diagonal covariance LDA
+\series default
+\color inherit
+: implying assumption: 
+\begin_inset Formula $\Sigma=\mathrm{Diag}(\sigma_{1}^{2},....,\sigma_{p}^{2})$
+\end_inset
+
+.
+ Special case of Naive Bayes.
+\end_layout
+
+\begin_layout Itemize
+Discriminant score for Diag LDA:
+\begin_inset Formula 
+\[
+\delta_{k}(\mathbf{x}^{\star})=-\sum_{j=1}^{p}\frac{\left(x_{j}^{\star}-\bar{x}_{kj}\right)^{2}}{s_{j}^{2}}+2\log\pi_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Classification rule: assign to class with highest score: 
+\begin_inset Formula $C(\mathbf{x}^{\star})=\ell$
+\end_inset
+
+ if 
+\begin_inset Formula $\delta_{\ell}(\mathbf{x}^{\star})=\mathrm{max}_{k}\delta_{k}(\mathbf{x}^{\star})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Nearest shrunken centroids (NSC)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Weakness of Diagonal covariance LDA: it uses all features in the classification
+ rule.
+ Doesn't tell us which features are useful for the classification.
+ Interpretation.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Nearest Shrunken Centroids
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+NSC
+\series default
+\color inherit
+) shrinks the class means 
+\begin_inset Formula $\bar{x}_{kj}$
+\end_inset
+
+ for feature 
+\begin_inset Formula $j$
+\end_inset
+
+ toward global mean 
+\begin_inset Formula $\bar{x}_{j}$
+\end_inset
+
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Basic idea: small deviations from global mean (normalized 
+\begin_inset Formula $\left|\bar{x}_{kj}-\bar{x}_{j}\right|$
+\end_inset
+
+
+\begin_inset Formula $<\Delta$
+\end_inset
+
+) are set to zero.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Some features are set equal to global mean for all classes 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ that feature does not have classification power.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Hard or smooth 
+\color blue
+threshold
+\series default
+\color inherit
+.
+ 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ is a 
+\series bold
+\color blue
+regularization
+\series default
+\color inherit
+ parameter.
+ Larger 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ gives simpler model (more features drop out of the model).
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Nearest shrunken centroids (NSC)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/Fig18.4a.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Nearest shrunken centroids (NSC)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/Fig18.4b.pdf
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Nearest shrunken centroids (NSC)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/FIg18.3.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Regularized Discriminant Analysis (RDA)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Estimate full 
+\begin_inset Formula $p\times p$
+\end_inset
+
+ covariance matrix 
+\begin_inset Formula $\hat{\Sigma}$
+\end_inset
+
+, but 
+\series bold
+shrink toward diagonal
+\series default
+ covariance matrix:
+\begin_inset Formula 
+\[
+\hat{\Sigma}(\gamma)=\gamma\hat{\Sigma}+(1-\gamma)\mathrm{Diag}(\hat{\Sigma})
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $0\leq\gamma\leq1$
+\end_inset
+
+ is the 
+\series bold
+shrinkage parameter
+\series default
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Note that 
+\begin_inset Formula $\hat{\Sigma}$
+\end_inset
+
+ has rank 
+\begin_inset Formula $N<p$
+\end_inset
+
+, so shrinkage toward diagonal is essential.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+RDA is like 
+\series bold
+ridge regression
+\series default
+ (where 
+\begin_inset Formula $\mathbf{X}^{\prime}\mathbf{X}$
+\end_inset
+
+ is shrunk toward the identity matrix).
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discriminative classification models, 
+\begin_inset Formula $N\ll p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multi-class logistic regression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\Pr(G=k\vert\mathbf{x})=\frac{\exp\left(\beta_{k0}+\mathbf{x}^{\prime}\beta_{k}\right)}{\sum_{\ell=1}^{K}\exp\left(\beta_{\ell0}+\mathbf{x}^{\prime}\beta_{\ell}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Regularization (L2):
+\begin_inset Formula 
+\[
+\max_{\{\beta_{0k},\beta_{k}\}_{k=1}^{K}}\left[\mathrm{Pr}\left(g_{i}\vert x_{i}\right)-\lambda\sum_{k=1}^{K}{\normalcolor \sum_{j=1}^{p}}\beta_{kj}^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Similar regularization can be done with 
+\series bold
+\color blue
+SVMs
+\series default
+\color inherit
+ and other models.
+\end_layout
+
+\begin_layout Itemize
+L1=
+\series bold
+\color blue
+Lasso
+\series default
+\color inherit
+ regularization is another option.
+ Penalty: 
+\begin_inset Formula $\lambda\sum_{k=1}^{K}{\normalcolor \sum_{j=1}^{p}}\left|\beta_{kj}\right|$
+\end_inset
+
+.
+ Severe regularization since at most 
+\begin_inset Formula $N$
+\end_inset
+
+ selected (non-zero) features when 
+\begin_inset Formula $N<p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Elastic net
+\series default
+\color inherit
+ penalty: 
+\begin_inset Formula $\lambda\sum_{k=1}^{K}{\normalcolor \sum_{j=1}^{p}}\left(\alpha\left|\beta_{kj}\right|+(1-\alpha)\beta_{kj}^{2}\right)$
+\end_inset
+
+.
+ Number of selected features can be larger than 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ by cross-validation.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discriminative classification models, 
+\begin_inset Formula $N\ll p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/Fig18.5.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Survival data with censoring
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/Fig18.11.pdf
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Kaplan-Meier Survival curves
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/Fig18.12.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Principal Components regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Compute the 
+\series bold
+principal components
+\series default
+ of 
+\begin_inset Formula $\mathbf{X}$
+\end_inset
+
+ (
+\begin_inset Formula $N\times p$
+\end_inset
+
+) by performing the eigenvalue decomposition
+\begin_inset Formula 
+\[
+\mathbf{X}^{\prime}\mathbf{X}=\mathbf{V}\Lambda\mathbf{V}^{\prime}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\mathbf{Z}=\mathbf{X}\mathbf{V}$
+\end_inset
+
+ be the 
+\begin_inset Formula $N\times p$
+\end_inset
+
+ matrix with 
+\series bold
+principal component scores
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+PC regression
+\series default
+\color inherit
+: Regress 
+\begin_inset Formula $\mathbf{y}$
+\end_inset
+
+ on the 
+\begin_inset Formula $m$
+\end_inset
+
+ PCs with largest eigenvalues.
+ Choose 
+\begin_inset Formula $m$
+\end_inset
+
+ by cross-validation.
+\end_layout
+
+\begin_layout Itemize
+Problem: PCs are designed to 
+\series bold
+capture most of the variation in 
+\begin_inset Formula $\mathbf{X}$
+\end_inset
+
+
+\series default
+, but is unrelated to the linear combinations predictive power with respect
+ to 
+\begin_inset Formula $\mathbf{y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Supervised PC regression
+\series default
+ 
+\color inherit
+and 
+\series bold
+\color blue
+Partial Least Squares
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+PLS
+\series default
+\color inherit
+) use the correlation between 
+\begin_inset Formula $\mathbf{y}$
+\end_inset
+
+ and the linear combinations to construct linear combinations.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Supervised Principal Components regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/SupervisedPCAAlgorithm.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+PC regression for survival analysis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Graphics/Fig18.14.pdf
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\end_body
+\end_document
