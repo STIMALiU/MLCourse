@@ -999,7 +999,7 @@ LDA requires the estimation of class conditional distributions
 \end_inset
 
 ,...,
-\begin_inset Formula $N\left(\mu_{2},\Sigma\right)$
+\begin_inset Formula $N\left(\mu_{K},\Sigma\right)$
 \end_inset
 
 .
